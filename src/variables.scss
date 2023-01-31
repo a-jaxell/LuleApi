@@ -1,0 +1,21 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap");
+
+$blue-color: #112d4e;
+$text-color: #dbe2ef;
+$background-color: #ccd6d9;
+$font-size: 20px;
+$font-family: "Inter", sans-serif;
+$font-weight: 400;
+$screen-breakpoint: 750px;
+$available-seat-color: rgb(167, 216, 233);
+$unavailable-seat-color: rgb(255, 0, 0);
+$selected-seat-color: rgb(71, 209, 71);
+$hover-seat-color: rgb(238, 238, 20);
+
+
+//mixin ifall vi vill ändra färg på svg iconer.
+@mixin iconColor {
+  color: $text-color;
+  filter: invert(94%) sepia(10%) saturate(397%) hue-rotate(16deg)
+    brightness(105%) contrast(92%);
+}

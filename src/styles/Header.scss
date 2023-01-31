@@ -1,0 +1,95 @@
+.header {
+  background-color: $blue-color;
+  border-radius: 0em 0em 1em 1em;
+  box-shadow: 0 0.2em 0.3em black;
+  color: $text-color;
+  min-height: 150px;
+  margin-bottom: 40px;
+
+  .top-header {
+    padding-top: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    gap: 90px;
+
+    .logotype {
+      width: 12em;
+      height: auto;
+      @media screen and (min-width: 1400px) {
+        position: absolute;
+        top: 20px;
+        left: 0;
+        width: 17em;
+        height: auto;
+      }
+    }
+    h1 {
+      font-size: xx-large;
+      font-family: $font-family;
+      display: flex;
+      margin-left: -80px;
+      @media screen and (min-width: $screen-breakpoint) {
+        font-size: 60px;
+      }
+      @media screen and (max-width: 400px) {
+        display: none;
+      }
+    }
+    #hamburger-icon {
+      right: 5px;
+      top: 3px;
+      position: absolute;
+      width: 3em;
+      margin: 0em 1em 0 0;
+      @include iconColor;
+      //removing hamburger icon
+      @media screen and (min-width: $screen-breakpoint) {
+        display: none;
+      }
+    }
+  }
+  nav {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+    font-size: $font-size;
+    .main-nav {
+      display: none;
+
+      &.show {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        list-style: none;
+        text-decoration: none;
+        font-size: 0.9em;
+        margin-bottom: 1em;
+      }
+
+      @media screen and (min-width: $screen-breakpoint) {
+        display: flex;
+        list-style: none;
+        gap: 2.5em;
+      }
+
+      section {
+        .social-media-links {
+          @include iconColor;
+        }
+      }
+
+      a {
+        text-decoration: none;
+        color: $text-color;
+        transition: 0.2s;
+
+        &:hover {
+          transform: scale(1.05);
+          color: whitesmoke;
+        }
+      }
+    }
+  }
+}

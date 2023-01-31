@@ -1,0 +1,116 @@
+.bookingContent{
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  width: 863px;
+  padding: 0 15px 15px 15px;
+  margin: 0 auto 3em auto;
+  background-color: $blue-color;
+  color: whitesmoke;
+  text-align: center;
+  p{
+    padding: 1em 1em 1em 0; 
+    font-size: 1.1em;
+  }
+  a{
+    text-decoration: none;
+    color: lightskyblue; 
+    :hover{ 
+    text-decoration: underline;
+  }    
+} 
+@media screen and (min-width: $screen-breakpoint) {
+  width: 1170px;
+  }
+}
+
+.screen{
+    width: 65%;
+    background-color: crimson;
+    font-size: 3em;
+    margin-left: 130px;
+    }
+
+.seat{
+    display:flex;
+    background-color: $available-seat-color;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    color: red;
+    cursor: pointer;
+    &:hover{
+        background-color: $hover-seat-color;
+        transition: 0.2s;
+    }
+
+    img{
+        width: 20px;
+        height: 20px;
+        margin: 0 0 0 0.5em;
+    }
+}
+.selected{
+    display:flex;
+    background-color: $selected-seat-color;
+    transition: 0.2s;
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+    
+    img{
+        width: 20px;
+        height: 20px;
+        margin: 0 0 0 0.5em;
+    }
+}
+.unavailable{
+    display:flex;
+    background-color: $unavailable-seat-color;
+    transition: 0.2s;
+    color: whitesmoke;
+    cursor: not-allowed;
+    width: 20px;
+    height: 20px;
+
+    img{
+        width: 20px;
+        height: 20px;
+        margin: 0 0 0 0.5em;
+    }
+}
+.seatPlanCanvas {
+    display: grid;
+    grid-template-columns: repeat(12, auto);
+    grid-template-rows: repeat(6, auto);
+    gap: 40px;
+    margin: 50px 0;
+    @media screen and (max-width: 415px) {
+      gap: 20px;
+    }
+}
+.ticketSelector {
+    display:flex;
+
+    .active{
+        display: flex;
+        width: 200px;
+    }
+}
+.ticket{
+    background-color: white;
+    width: 100px;
+    height: 40px;
+    margin: 10px;
+    color: black;
+    text-align: center;
+    border-radius: 10px;
+
+}
+.addToCart{
+  width: 100px;
+  height: 40px;
+  border-radius: 10px;
+  background-color: green;
+  margin: 10px;
+}
+@import "../variables.scss";  

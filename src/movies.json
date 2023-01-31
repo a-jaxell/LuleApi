@@ -1,0 +1,302 @@
+{
+    "movies": [
+        {
+            "title": "Avatar: The Way of Water",
+            "posterImageUrl": "https://catalog.cinema-api.com/cf/images/ncg-images/d9f7fb05217d42878fcd52f7fc7259f7.jpg",
+            "movieSceneImageUrl": "https://catalog.cinema-api.com/cf/images/ncg-images/e1a05650da6d47829cbf98cbf689a2e1.jpg",
+            "genre": "Action",
+            "year": 2022,
+            "length": 192,
+            "ageLimit": 11,
+            "description": "Mer än tio år efter händelserna i den första filmen berättar ”Avatar The Way of Water” historien om familjen Sully (Jake, Neytiri och deras barn), problemen som följer dem, allt de gör för att leva i säkerhet, slagen de utkämpar för att hålla sig levande och tragedierna de måste utstå.",
+            "actors": [
+                "Sam Worthington",
+                "Zoe Saldana",
+                "Sigourney Weaver",
+                "Stephen Lang",
+                "Kate Winslet"
+            ],
+            "director": "James Cameron",
+            "language": "Engelska",
+            "rating": 8
+        },
+        {
+            "title": "UFO Sweden",
+            "posterImageUrl": "https://catalog.cinema-api.com/cf/images/ncg-images/140986ef11d34ca3b58b8471d4fe01d5.jpg",
+            "movieSceneImageUrl": "https://catalog.cinema-api.com/cf/images/ncg-images/59b470831305426dbda264f929efa291.jpg",
+            "genre": "Äventyr",
+            "year": 2022,
+            "length": 115,
+            "ageLimit": 11,
+            "description": "UFO Sweden är en förening som utreder övernaturliga fenomen. En dag dyker tonårsrebellen Denise upp med ett fall som inte liknar något de sett tidigare. Tillsammans ger de sig ut på ett riskfyllt äventyr, som tar dem långt utanför lagens gränser och in i en värld av oförklarliga fenomen.",
+            "actors": [
+                "Inez Dahl Torhaug",
+                "Jesper Barkselius",
+                "Sara Shirpey",
+                "Eva Melander",
+                "Oscar Töringe"
+            ],
+            "director": "Victor Danell",
+            "language": "Svenska",
+            "rating": 7.5
+        },
+        {
+            "title": "Länge leve Bonusfamiljen",
+            "posterImageUrl": "https://catalog.cinema-api.com/cf/images/ncg-images/7dc1d4cba7094f00be816fad4b951a4a.jpg",
+            "movieSceneImageUrl": "https://catalog.cinema-api.com/cf/images/ncg-images/db1ffe8c233e42c2bc2a787a84bb7c5f.jpg",
+            "genre": "Komedi",
+            "year": 2022,
+            "length": 107,
+            "ageLimit": 0,
+            "description": "Hur länge ska man kämpa för sitt äktenskap och kan man förlåta otrohet? Lisa och Patrik har lappat ihop sitt äktenskap efter Patriks otrohet ett år tidigare när ett brev från tingsrätten dimper ner. Det visar sig att Lisa glömt bort att hon lämnade in skilsmässopapper när det var som sämst mellan dem och nu är skilsmässan ett faktum. Patrik bli bestört, han vill absolut inte vara skild från Lisa och bestämmer sig för att överraska henne i fjällen med ett bröllop på nyårsafton.",
+            "actors": [
+                "Vera Vitali",
+                "Erik Johansson",
+                "Fredrik Hallgren",
+                "Johan Ulveson",
+                "Niklas Engdahl"
+            ],
+            "director": "Felix Herngren",
+            "language": "Svenska",
+            "rating": 6
+        },
+        {
+            "title": "Mästerkatten 2",
+            "posterImageUrl": "https://catalog.cinema-api.com/cf/images/ncg-images/6453dceea4974453b96b3e2554ab60f8.jpg",
+            "movieSceneImageUrl": "https://catalog.cinema-api.com/cf/images/ncg-images/1e847970b5374ea29d7fae160e60aa5a.jpg",
+            "genre": "Animerat",
+            "year": 2022,
+            "length": 103,
+            "ageLimit": 0,
+            "description": "Den djärve lagbrytaren Mästerkatten upptäcker att hans passion för fara, och orädda våghalsighet, har tagit ut sin rätt. Mästerkatten har tappat räkningen och har gjort av med åtta av sina nio liv. Det finns en önskestjärna som kan återställa hans förlorade liv och han ger sig ut på en resa som leder honom in i den svarta skogen. Men med bara ett liv kvar, måste Mästerkatten bli ödmjuk och be om hjälp från sin tidigare partner och fiende: den fängslande Kitty Mjuktass.",
+            "actors": [
+                "Antonio Banderas",
+                "Salma Hayek",
+                "Harvey Guillén",
+                "Florence Pugh",
+                "John Mulaney"
+            ],
+            "director": "Joel Crawford",
+            "language": "Engelska",
+            "rating": 8
+        },
+        {
+            "title": "Decision to Leave",
+            "posterImageUrl": "https://catalog.cinema-api.com/cf/images/ncg-images/e4997120e0474bb990ec97ed6ec4552c.jpg",
+            "movieSceneImageUrl": "https://catalog.cinema-api.com/cf/images/ncg-images/cd433e384df3480ababb82d130ff5d89.jpg",
+            "genre": "Kriminaldrama",
+            "year": 2022,
+            "length": 138,
+            "ageLimit": 11,
+            "description": "Den timide polisen Haejun undersöker ett mystiskt fall där en klättrare fallit mot sin död. Offrets förföriska änka, Sorae, är misstänkt kylig men har snart Haejun lindad runt sitt lillfinger. Decision to Leave är en nyskapande thriller, där passion och rättvisa är drivkrafterna i en tät berättelse vars vändningar är omöjliga att förutspå. Filmen är Sydkoreas Oscarsbidrag, och den senaste från mästarregissören Park Chan-wook.",
+            "actors": [
+                "Tang Wei",
+                "Park Hae-il",
+                "Go Kyung-Pyo",
+                "Lee Jung-hyun",
+                "Shin-Young Kim"
+            ],
+            "director": "Park Chan-wook",
+            "language": "Koreanska",
+            "rating": 7.5
+        },
+        {
+            "title": "A Man Called Otto",
+            "posterImageUrl": "https://catalog.cinema-api.com/cf/images/ncg-images/094955d629394d79973e70e5a6df7f36.jpg",
+            "movieSceneImageUrl": "https://catalog.cinema-api.com/cf/images/ncg-images/5cc021f21cc845d08ba475df52bebe8c.jpg",
+            "genre": "Komedi",
+            "year": 2023,
+            "length": 126,
+            "ageLimit": 11,
+            "description": "Otto Anderson är en grinig änkeman, vars enda glädje kommer från att kritisera och döma sina upprörda grannar. När en ny familj flyttar in möter han sin match i kvicktänkta och höggravida Marisol, vilket leder till en oväntad vänskap som kommer att vända upp och ner på hans värld. A Man Called Otto är den amerikanska re-maken av den svenska bok och filmsuccén En man som heter Ove.",
+            "actors": [
+                "Tom Hanks",
+                "Mariana Treviño",
+                "Rachel Keller",
+                "Manuel Garcia-Rulfo",
+                "Kailey Hyman"
+            ],
+            "director": "Marc Forster",
+            "language": "Engelska",
+            "rating": 7.5
+        },
+        {
+            "title": "Whitney Houston: I Wanna Dance With Somebody",
+            "posterImageUrl": "https://catalog.cinema-api.com/cf/images/ncg-images/fae1239050634160b2fc5c9350bc5faa.jpg ",
+            "movieSceneImageUrl": "https://catalog.cinema-api.com/cf/images/ncg-images/837d8cc6f9c4460dac47e4d938f0d75b.jpg",
+            "genre": "Biografi",
+            "year": 2022,
+            "length": 144,
+            "ageLimit": 7,
+            "description": "En biografisk film baserad på sångerskan Whitney Houstons storartade liv där vi får följa hennes känslofyllda och livfulla resa genom hennes karriär och musik.",
+            "actors": [
+                "Naomi Ackie",
+                "Ashton Sanders",
+                "Clarke Peters",
+                "Tamara Tunie",
+                "Stanley Tucci"
+            ],
+            "director": "Kasi Lemmons",
+            "language": "Engelska",
+            "rating": 7
+        },
+        {
+            "title": "Håkan Bråkan",
+            "posterImageUrl": "https://catalog.cinema-api.com/cf/images/ncg-images/2bab9437bcc2441fb342cc9d0a426c72.jpg",
+            "movieSceneImageUrl": "https://catalog.cinema-api.com/cf/images/ncg-images/bc1961e022b24accae1c7988e2cc1449.jpg",
+            "genre": "Familjefilm",
+            "year": 2022,
+            "length": 99,
+            "ageLimit": 7,
+            "description": "Håkan Bråkan passas av världens - enligt honom - tråkigaste barnvakt Amanda och han måste rymma därifrån för att vinna årets viktigaste dataspelstävling! Det är starten på en serie missförstånd där Håkan hamnar på kollisionskurs med en härjande inbrottsliga. För att besegra tjuvarna måste han använda sina kunskaper från dataspelet in i den riktiga världen. Lyckas han så får han inte bara lugn och ro till att spela – han kan också rädda hela grannskapet och sin framtid.",
+            "actors": [
+                "Silas Strand",
+                "Sissela Benn",
+                "Fredrik Hallgren",
+                "Yussra El Abdouni",
+                "Christoffer Nordenrot"
+            ],
+            "director": "Ted Kjellsson",
+            "language": "Svenska",
+            "rating": 7
+        },
+        {
+            "title": "Black Panther: Wakanda Forever",
+            "posterImageUrl": "https://catalog.cinema-api.com/cf/images/ncg-images/fc58bb76012a456a965321c3790f5806.jpg",
+            "movieSceneImageUrl": "https://catalog.cinema-api.com/cf/images/ncg-images/650a3b34e77343ac8f335982958746fb.jpg",
+            "genre": "Action",
+            "year": 2022,
+            "length": 161,
+            "ageLimit": 11,
+            "description": "Queen Ramonda, Shuri, MBaku, Okoye och deras specialstyrka med kvinnliga krigare, gör allt för att skydda sin nation från angripande världsmakter efter Kung TChallas död. Wakandas invånare försöker gå vidare och tar hjälp av War Dog Nakia och Everett Ross, för att hitta en ny väg för kungariket Wakanda. Vi får också möta Namor, kungen av en dold undervattensnation.",
+            "actors": [
+                "Lupita Nyong'o",
+                "Angela Bassett",
+                "Letitia Wright",
+                "Danai Gurira",
+                "Tenoch Huerta"
+            ],
+            "director": "Ryan Coogler",
+            "language": "Engelska",
+            "rating": 7
+        },
+        {
+            "title": "Black Adam",
+            "posterImageUrl": "https://catalog.cinema-api.com/cf/images/ncg-images/87edee22bf184c03b1861c823e5d3d03.jpg",
+            "movieSceneImageUrl": "https://catalog.cinema-api.com/cf/images/ncg-images/afc018b9426c4517bbc7cd631db1212f.jpg",
+            "genre": "Action",
+            "year": 2022,
+            "length": 124,
+            "ageLimit": 11,
+            "description": "Nära 5000 år efter att han tilldelats de forntida gudarnas allsmäktiga krafter - och fängslats lika snabbt - blir Black Adam befriad, redo att släppa lös sin egen form av rättvisa i den moderna världen.",
+            "actors": [
+                "Dwayne Johnson",
+                "Sarah Shahi",
+                "Pierce Brosnan",
+                "Noah Centineo",
+                "Aldis Hodge"
+            ],
+            "director": "Jaume Collet-Serra",
+            "language": "Engelska",
+            "rating": 6.5
+        },
+        {
+            "title": "En sång för min dotter",
+            "posterImageUrl": "https://catalog.cinema-api.com/cf/images/ncg-images/4789ac121cd94f49a61f1037127b50a6.jpg",
+            "movieSceneImageUrl": "https://catalog.cinema-api.com/cf/images/ncg-images/5009948137d64a0cb014f52b4c0182ed.jpg",
+            "genre": "Drama",
+            "year": 2023,
+            "length": 104,
+            "ageLimit": 7,
+            "description": "Amaia har precis blivit mamma och inser snabbt att hon inte vet hur man är det. När hennes partner försvinner iväg på jobb i flera veckor bestämmer hon sig för att åka till sina föräldrars hus, som ligger i en mysig kuststad i Baskien. Hon vill dela ansvaret av barnet med sina föräldrar men inser att, trots att hon själv är mamma, är hon också en dotter.",
+            "actors": [
+                "Laia Costa",
+                "Susi Sánchez",
+                "Ramón Barea",
+                "Mikel Bustamante"
+            ],
+            "director": "Alauda Ruiz de Azúa",
+            "language": "Spanska",
+            "rating": 7.5
+        },
+        {
+            "title": "Sagan om Ringen: Härskarringen Extended Version",
+            "posterImageUrl": "https://catalog.cinema-api.com/cf/images/ncg-images/bba849aa1a174a7882d4003eb8d0ba81.jpg",
+            "movieSceneImageUrl": "https://catalog.cinema-api.com/cf/images/ncg-images/a5efb1b520c547b992543fc6cf9ade89.jpg",
+            "genre": "Äventyr",
+            "year": 2001,
+            "length": 218,
+            "ageLimit": 11,
+            "description": "Den unge hoben Frodo ärver en magisk ring av sin kusin Bilbo. Frodo får snart veta att dess ursprunglige skapare, den onde trollkarlen Sauron, desperat letar efter ringen. Ringen har onda krafter som Sauron behöver för att förslava hela Midgård. Det finns bara en utväg, att förstöra ringen i Domedagsklyftan. Ett litet sällskap om nio utvalda ger sig iväg med den motvillige Frodo. Det blir en färd fylld av äventyr och fasor.",
+            "actors": [
+                "Elijah Wood",
+                "Sean Astin",
+                "Ian Holm",
+                "Ian McKellen",
+                "Christopher Lee"
+            ],
+            "director": "Peter Jackson",
+            "language": "Engelska",
+            "rating": 9.5
+        },
+        {
+            "title": "Feed",
+            "posterImageUrl": "https://catalog.cinema-api.com/cf/images/ncg-images/6a096f3ad0fc4b479a075bba7283c306.jpg",
+            "movieSceneImageUrl": "https://catalog.cinema-api.com/cf/images/ncg-images/fa99cd0064f14310a279f49751be8112.jpg",
+            "genre": "Skräck",
+            "year": 2022,
+            "length": 100,
+            "ageLimit": 15,
+            "description": "En grupp ungdomar med en välkänd influencer i spetsen blir inbjudna till en exklusiv campinganläggning mitt ute i vildmarken. Med siktet ställt på innehåll av högsta kvalitet åker de ut till en liten ö för några dagar av lyxigt vildmarksliv, redo att dela allt med sina följare. Men det finns något där ute, något som vill dem illa, något som inte går att förklara. Ganska snart handlar det inte längre om att hålla flödet levande, utan om att själv överleva.",
+            "actors": [
+                "Molly Nutley",
+                "Sofia Kappel",
+                "Joel Lützow",
+                "Vincent Grahl",
+                "Emelina Rosenstielke"
+            ],
+            "director": "Johannes Persson",
+            "language": "Svenska",
+            "rating": 6.5
+        },
+        {
+            "title": "M3GAN",
+            "posterImageUrl": "https://catalog.cinema-api.com/cf/images/ncg-images/7fb29854916c4a6e9aa333c60328a39d.jpg",
+            "movieSceneImageUrl": "https://catalog.cinema-api.com/cf/images/ncg-images/adaa451ef41a47dcaa10ff2113718454.jpg",
+            "genre": "Skräck",
+            "year": 2023,
+            "length": 102,
+            "ageLimit": 15,
+            "description": "M3GAN är ett under av artificiell intelligens, en verklighetstrogen docka programmerad att vara ett barns bästa följeslagare och en förälders främsta allierade. Designad av leksaksföretagets briljanta robottekniker Gemma, kan M3GAN lyssna, se och lära sig medan hon blir vän, lärare, lekkamrat och beskyddare till barnet hon är knuten till. När Gemma plötsligt blir vårdnadshavare för sin föräldralösa 8-åriga systerdotter, Cady, är Gemma osäker och oförberedd på att bli förälder. Under intensiv press på jobbet, bestämmer sig Gemma för att para ihop sin M3GAN-prototyp med Cady i ett försök att lösa båda problemen – ett beslut som kommer att få ofattbara konsekvenser.",
+            "actors": [
+                "Allison Williams",
+                "Gerard Johnstone",
+                "Ronny Chieng",
+                "Brian Jordan Alvarez",
+                "Jen Van Epps"
+            ],
+            "director": "Gerard Johnstone",
+            "language": "Engelska",
+            "rating": 5.5
+        },
+        {
+            "title": "Plane",
+            "posterImageUrl": "https://catalog.cinema-api.com/cf/images/ncg-images/2f3c2aad68f54be5b0632680560c99be.jpg",
+            "movieSceneImageUrl": "https://catalog.cinema-api.com/cf/images/ncg-images/47163d650eb84c10a9b2724eb19dedbb.jpg",
+            "genre": "Action",
+            "year": 2023,
+            "length": 107,
+            "ageLimit": 15,
+            "description": "Piloten Ray Torrance lyckas på ett heroiskt sätt landa ett svårt stormskadat flygplan på en avlägsen ö utanför Filippinerna. Snart inser de att de befinner sig i en laglös krigszon och de blir snabbt måltavla för hänsynslösa terrorister som vill ta planet och dess passagerare som gisslan. Det blir upp till Ray att lösa ytterligare en livsfarlig situation och föra passagerarna i säkerhet.",
+            "actors": [
+                "Gerard Butler",
+                "Daniella Pineda",
+                "Mike Colter",
+                "Tony Goldwyn"
+            ],
+            "director": "Jean-François Richet",
+            "language": "Engelska",
+            "rating": 0
+        }
+    ]
+}

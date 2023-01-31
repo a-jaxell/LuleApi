@@ -1,0 +1,24 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    background-image: url("../static/background.png");
+}
+
+@import "variables.scss";
+@import "styles/Header.scss";
+@import "styles/footer.scss";
+@import "styles/main-nav-pages.scss";
+@import "styles/ticket-info-page.scss";
+@import "styles/secNav.scss";
+@import "styles/cards.scss";
+@import "styles/booking.scss";
+@import "styles/WholeProgram.scss";
+@import "styles/upcoming.scss";
+@import "./styles/about.scss";
+@import "styles/opening.scss";
+@import "styles/fnb-food.scss";
+@import "styles/premiereFriday.scss"

@@ -1,0 +1,56 @@
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 1em;
+    .opening-contact {
+        width: 75%;
+    }
+    .openingHour-main-title {
+        width: 100%;
+        text-align: center;
+        font-size: 3.8em;
+        letter-spacing: 0.3em;
+        padding-bottom: 0.8em;
+        padding-top: 1em;
+    }
+    .sec-title {
+        text-align: center;
+        font-size: 2em;
+        padding-bottom: 1em;
+    }
+    .opening-hours {
+        text-align: center;
+        font-size: 1.6em;
+        list-style-type: none;
+        font-weight: bold;
+        word-spacing: 2em;
+    }
+    .avikande {
+        word-spacing: 0px;
+    }
+    .contact-us {
+        padding-bottom: 1em;
+        text-align: center;
+        font-size: 2em;
+    }
+    .contact-info {
+        text-align: center;
+        font-size: 1.6em;
+        list-style-type: none;
+        font-weight: bold;
+    }
+    .hyra {
+        padding-bottom: 1em;
+        padding-top: 2em;
+        text-align: center;
+        font-size: 2em;
+    }
+    .hyr-oss {
+        padding-bottom: 2em;
+        text-align: center;
+        font-size: 1.6em;
+        list-style-type: none;
+        font-weight: bold;
+    }
+}

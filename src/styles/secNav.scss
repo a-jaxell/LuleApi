@@ -1,0 +1,95 @@
+.secNav {
+  margin: 17px 10px;
+
+  @media (min-width: $screen-breakpoint) {
+    background-color: $blue-color;
+    box-shadow: 0 0.2em 0.3em black;
+    border-radius: 0.5em 0.5em 0.5em 0.5em;
+  }
+}
+
+.secNav menu {
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  max-width: 1000px;
+}
+
+.secNav-menu-item {
+  list-style: none;
+  width: 100%;
+  text-align: center;
+  margin-top: 7px;
+  border-radius: 0.5em 0.5em 0.5em 0.5em;
+  box-shadow: 0 0.2em 0.3em black;
+
+  @media (min-width: $screen-breakpoint) {
+    width: auto;
+    box-shadow: none;
+    background-color: $blue-color;
+  }
+}
+
+.secNav-menu-item button {
+  cursor: pointer;
+  border: none;
+  background-color: $blue-color;
+  color: $text-color;
+  font-family: $font-family;
+  text-align: center;
+  list-style: none;
+  font-weight: bold;
+  font-size: 16px;
+  width: 100%;
+  border-radius: 0.5em 0.5em 0.5em 0.5em;
+
+  background-color: transparent;
+  box-shadow: none;
+  margin: 0;
+  padding: 20px 27px;
+
+  &:hover {
+    transform: scale(1.1);
+    color: whitesmoke;
+  }
+
+  @media (max-width: $screen-breakpoint) {
+    background-color: #091829;
+    &:hover {
+      background-color: #08121f;
+      transform: scale(1);
+    }
+  }
+}
+
+.secNav-dropdown {
+  display: none;
+  position: relative;
+  box-shadow: 0 0.2em 0.3em black;
+  z-index: 1;
+
+  @media (min-width: $screen-breakpoint) {
+    position: absolute;
+    background-color: #000000ec;
+  }
+}
+
+.secNav-dropdown a {
+  background-color: $blue-color;
+  margin-top: 1px;
+  cursor: pointer;
+  width: 100%;
+  color: white;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.secNav-dropdown a:hover {
+  background-color: #2361a8;
+}
+
+.show {
+  display: block;
+}

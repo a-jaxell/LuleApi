@@ -1,0 +1,43 @@
+.pageHeader{
+  width: 863px;
+  padding: 20px;
+  margin: 0 auto 3em auto;
+  background-color: $blue-color;
+  color: whitesmoke;
+  text-align: center;
+  h2{
+      font-size: 40px;
+      padding: 1em 1em 1em 0;
+  }
+  @media screen and (min-width: $screen-breakpoint) {
+    width: 1170px;
+    h2{
+      font-size: 100px;
+      padding: 1em 1em 1em 0;
+    }
+  }    
+}
+
+.content{
+  width: 863px;
+  padding: 0 15px 15px 15px;
+  margin: 0 auto 3em auto;
+  background-color: $blue-color;
+  color: whitesmoke;
+  text-align: center;
+  p{
+    padding: 1em 1em 1em 0; 
+    font-size: 1.1em;
+  }
+  a{
+    text-decoration: none;
+    color: lightskyblue; 
+    :hover{ 
+      text-decoration: underline;
+    }    
+  } 
+  @media screen and (min-width: $screen-breakpoint) {
+    width: 1170px;
+  }
+}
+@import "../variables.scss";

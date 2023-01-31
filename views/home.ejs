@@ -1,0 +1,21 @@
+<div class="picture-container">
+  <% movies.forEach( (movies) => { %>
+    
+    <a href="movies/<%= movies.id %>">
+      
+      <li>
+        <h2>Titel: <%= movies.title %> </h2>
+        <p>Intro: <%- movies.intro %></p>
+        <img src="<%= movies.image.url %>" alt="">
+      </li>
+    </a>
+
+    <% }); %>
+
+</div>
+<!-- 
+<div class="modal-container">
+      <div class="cinema-modal">
+
+      </div>
+</div> -->
