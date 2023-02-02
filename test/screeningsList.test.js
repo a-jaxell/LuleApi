@@ -1,5 +1,5 @@
-import getScreeningsList from '../server/screeningsList.js';
-import mockApiAdapter from './mockApiAdapter.js'
+import { getScreeningsList } from '../server/screeningsList.js';
+import { mockApiAdapter } from './mockApiAdapter.js'
 
 
 describe('Control if data recieved has correct format and size', () => {
