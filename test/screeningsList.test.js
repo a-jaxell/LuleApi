@@ -1,4 +1,4 @@
-import screeningsList from '../server/screeningsList.js';
+import getScreeningsList from '../server/screeningsList.js';
 import mockApiAdapter from './mockApiAdapter.js'
 
 
