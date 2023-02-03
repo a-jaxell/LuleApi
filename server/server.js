@@ -1,6 +1,7 @@
 import express from "express";
 import expressLayouts from "express-ejs-layouts";
 import apiAdapter from "./apiAdapter.js";
+import loadUpcomingScreenings from "./loadUpcomingScreenings.js";
 
 const app = express();
 
@@ -17,6 +18,7 @@ app.get("/", async (req, res) => {
      .render("home", { movies: await apiAdapter() });
 });
 
+
 app.get("/movies/:id", async (req, res) => {
   const movie = await apiAdapter(req.params.id);
 
@@ -28,6 +30,7 @@ app.get("/movies/:id", async (req, res) => {
        .render("thisMovieNotFound");
   }
 });
+
 
 // TODO fixa repetativa getlisteners
 {
@@ -74,6 +77,12 @@ app.get("/movies/:id", async (req, res) => {
     res.render("WholeProgramPage");
   });
 }
+
+app.get("/fetch/:id", async (req, res) => {
+  const upcoming = await loadUpcomingScreenings(req.params.id);
+  res.send(upcoming)
+})
+
 
 app.use((req, res) => {
   res.status(404)

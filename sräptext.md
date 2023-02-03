@@ -17,8 +17,6 @@ och testas med hjälp av ett enhetstest och mockade datakällor
 # skapa test enhetstest som kontrollerar att filmerna är en kommande visning " tex att dem har en start_time "
 
 
-
-
 1. vi hämtar alla filmer till backend. Och plockar ut de filmer som ska visas på den sida vi är på. 
 2. i anropet där vi hämtar hema alla screenings för den film som sidan ska ha.
 Kan man i HTTP-anropet, när man hämtar hem alla screenings, ange någon url eller queryString för att enbart få hem screenings för en film med ett visst title name?
