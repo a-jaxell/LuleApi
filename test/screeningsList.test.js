@@ -21,7 +21,7 @@ describe('Control if data recieved has correct format and size', () => {
         expect(data[5].start_time).not.toBeUndefined();
         expect(Date.parse(`${data[4].start_time}`)).toBeTruthy();
         
-    })
+    });
     test('Data is an array and does not contain more than 10 entities of data', async () => {
         const data = await getScreeningsList(mockApiAdapter);
         
