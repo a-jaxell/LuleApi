@@ -20,11 +20,11 @@ app.get("/", async (req, res) => {
 
 app.get("/movies/:id", async (req, res) => {
   const movie = await apiAdapter(req.params.id);
-  const reviews = await getReviews(req.params.id);
-  console.log(reviews);
   if (movie != undefined) {
+    const reviews = await getReviews(req.params.id);
+    console.log(reviews);
     res.status(200)
-       .render("movies", { movie: await apiAdapter(req.params.id) });
+       .render("movies", {movie, reviews});
   } else {
     res.status(404)
        .render("thisMovieNotFound");
