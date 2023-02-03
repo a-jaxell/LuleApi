@@ -19,7 +19,8 @@ app.get("/", async (req, res) => {
 
 app.get("/movies/:id", async (req, res) => {
   const movie = await apiAdapter(req.params.id);
-
+  const reviews = await apiAdapter(req.params.id,"/reviews")
+  console.log(reviews);
   if (movie != undefined) {
     res.status(200)
        .render("movies", { movie: await apiAdapter(req.params.id) });
