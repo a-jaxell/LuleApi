@@ -2,12 +2,11 @@ import fetch from "node-fetch";
 import MarkdownIt from "markdown-it";
 const md = new MarkdownIt();
 
-export default async function apiAdapter(params) {
+export default async function apiAdapter(param) {
   const baseUrl = "https://plankton-app-xhkom.ondigitalocean.app/api/movies/";
-  const reviewbaseUrl = "https://plankton-app-xhkom.ondigitalocean.app/api/reviews/";
   
   //if a parameter is passed it fetches with the parameter, otherwise without
-  const res = params[0] ? await fetch(baseUrl + params[0]) : await fetch(baseUrl);
+  const res = param ? await fetch(baseUrl + param) : await fetch(baseUrl);
   const data = await res.json();
   /* if its an array it formats&restructuring all elements and returns them as objects,
        if its a single object it handles it separately in the else */
@@ -26,4 +25,11 @@ export default async function apiAdapter(params) {
       return { id: data.data.id, ...data.data.attributes };
     } catch (err) {}
   }
+}
+
+export async function getReviews(params){
+  const reviewbaseUrl = "https://plankton-app-xhkom.ondigitalocean.app/api/reviews/";
+  const res = params ? await fetch(reviewbaseUrl + "?=" + params[0]) : await fetch(baseUrl);
+  console.log(res);
+  return await res.json();
 }

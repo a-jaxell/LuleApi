@@ -1,6 +1,7 @@
 import express from "express";
 import expressLayouts from "express-ejs-layouts";
 import apiAdapter from "./apiAdapter.js";
+import { getReviews } from "./apiAdapter.js";   
 
 const app = express();
 
@@ -19,7 +20,7 @@ app.get("/", async (req, res) => {
 
 app.get("/movies/:id", async (req, res) => {
   const movie = await apiAdapter(req.params.id);
-  const reviews = await apiAdapter(req.params.id,"/reviews")
+  const reviews = await getReviews(req.params.id);
   console.log(reviews);
   if (movie != undefined) {
     res.status(200)
