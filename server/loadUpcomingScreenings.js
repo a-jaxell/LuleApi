@@ -7,9 +7,11 @@ export default async function loadUpcomingScreenings(param) {
   const res = await fetch(baseUrl + param);
   const data = await res.json();
 
-  return data.data.filter((elem) => {
+  return data.data
+    .filter((elem) => {
       return (elem) => elem.start_time > new Date().toISOString();
-    }).map((elem) => {
+    })
+    .map((elem) => {
       return {
         room: elem.attributes.room,
         date: elem.attributes.start_time.substring(0, 10),
