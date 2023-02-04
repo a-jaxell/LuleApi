@@ -18,7 +18,6 @@ app.get("/", async (req, res) => {
      .render("home", { movies: await apiAdapter() });
 });
 
-
 app.get("/movies/:id", async (req, res) => {
   const movie = await apiAdapter(req.params.id);
 
@@ -80,13 +79,10 @@ app.get("/movies/:id", async (req, res) => {
 
 app.get("/fetch/:id", async (req, res) => {
   const upcoming = await loadUpcomingScreenings(req.params.id);
-  console.log(upcoming)
-
-  res.send(upcoming);
-
-  // upcoming.length != 0 ?
-  // res.send(upcoming) :
-  // res.send("Inga kommande visningar")
+  
+  upcoming.length != 0 ?
+  res.send(upcoming) :
+  res.send("Inga kommande visningar")
 })
 
 
