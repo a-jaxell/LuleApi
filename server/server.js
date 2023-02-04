@@ -80,7 +80,13 @@ app.get("/movies/:id", async (req, res) => {
 
 app.get("/fetch/:id", async (req, res) => {
   const upcoming = await loadUpcomingScreenings(req.params.id);
-  res.send(upcoming)
+  console.log(upcoming)
+
+  res.send(upcoming);
+
+  // upcoming.length != 0 ?
+  // res.send(upcoming) :
+  // res.send("Inga kommande visningar")
 })
 
 
