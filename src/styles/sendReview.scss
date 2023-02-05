@@ -36,4 +36,9 @@ form {
       transform: scale(1.05);
     }
   }
+  @media screen and (min-width: $screen-breakpoint) {
+    flex-direction: row;
+    justify-content: flex-start;
+    margin-left: 2rem;
+  }
 }

@@ -855,3 +855,10 @@ form button:hover {
 form button:active {
   transform: scale(1.05);
 }
+@media screen and (min-width: 750px) {
+  form {
+    flex-direction: row;
+    justify-content: flex-start;
+    margin-left: 2rem;
+  }
+}
