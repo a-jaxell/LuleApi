@@ -30,6 +30,15 @@ app.get("/movies/:id", async (req, res) => {
   }
 });
 
+app.get("/movies/:id/rating", async (req, res) => {
+  const movieID = req.params.id;
+  const response = await fetch(
+    `https://plankton-app-xhkom.ondigitalocean.app/api/reviews?filters%5Bmovie%5D=${movieID}`
+  );
+  const reviewData = await response.json();
+  res.send(reviewData);
+});
+
 app.post("/movies/:id/review", async (req, res) => {
   await fetch("https://plankton-app-xhkom.ondigitalocean.app/api/reviews", {
     method: "POST",
