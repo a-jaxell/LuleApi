@@ -1,7 +1,39 @@
 <div>
-    <li>
-        <h2>Titel: <%= movie.title %> </h2>
-        <p>Intro: <%- movie.intro %></p>
-        <img width="250px" height="500px" src="<%= movie.image.url%>" alt="">
-    </li>
+  <li>
+    <h2>Titel: <%= movie.title %></h2>
+    <p>Intro: <%- movie.intro %></p>
+    <img width="250px" height="500px" src="<%= movie.image.url%>" alt="" />
+  </li>
 </div>
+
+<form>
+  <div class="review-send">
+    <h2>Lämna review:</h2>
+    <div class="person-info">
+      <h4>Förnamn:</h4>
+      <input class="firstName" class="input" type="text" />
+      <h4>Efternamn:</h4>
+      <input class="lastName" class="input" type="text" />
+    </div>
+    <div>
+      <select class="rating" aria-placeholder="0-5" name="" id="">
+        <option value="0">0</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4 ">4</option>
+        <option value="5 ">5</option>
+      </select>
+    </div>
+
+    <textarea
+      class="comment-field"
+      placeholder="Lämna kommentar här"
+      name=""
+      id=""
+      cols="25"
+      rows="5"
+    ></textarea>
+  </div>
+  <button class="send-btn">Skicka din review</button>
+</form>

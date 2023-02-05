@@ -817,3 +817,33 @@ main {
     max-width: 1000px;
   }
 }
+form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@media screen and (min-width: 750px) {
+  form {
+    flex-direction: column;
+  }
+}
+form .input[type=text] {
+  padding-left: 15px;
+  font-size: 20px;
+}
+form .review-send {
+  font-size: 1.2rem;
+}
+form .review-send .person-info {
+  display: flex;
+  flex-direction: column;
+  margin-top: 2rem;
+  gap: 0.3rem;
+}
+form .review-send .person-info h4 {
+  font-size: 1.2rem;
+}
+form .review-send .person-info input {
+  width: 13rem;
+  height: 2rem;
+}

@@ -11,22 +11,36 @@ app.use(expressLayouts);
 app.use("/static", express.static("./static"));
 app.use("/js", express.static("./static/jsfrontend"));
 app.use("/src", express.static("./src"));
+app.use(express.json());
+app.use(express.urlencoded());
 
 app.get("/", async (req, res) => {
-  res.status(200)
-     .render("home", { movies: await apiAdapter() });
+  res.status(200).render("home", { movies: await apiAdapter() });
 });
 
 app.get("/movies/:id", async (req, res) => {
   const movie = await apiAdapter(req.params.id);
 
   if (movie != undefined) {
-    res.status(200)
-       .render("movies", { movie: await apiAdapter(req.params.id) });
+    res
+      .status(200)
+      .render("movies", { movie: await apiAdapter(req.params.id) });
   } else {
-    res.status(404)
-       .render("thisMovieNotFound");
+    res.status(404).render("thisMovieNotFound");
   }
+});
+
+app.post("/movies/:id/review", async (req, res) => {
+  const urlId = req.params.id;
+  await fetch(
+    `https://plankton-app-xhkom.ondigitalocean.app/api/reviews?filters%5Bmovie%5D=${urlId}`,
+    {
+      method: "POST",
+      mode: "cors",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(req.body),
+    }
+  );
 });
 
 // TODO fixa repetativa getlisteners
@@ -76,8 +90,7 @@ app.get("/movies/:id", async (req, res) => {
 }
 
 app.use((req, res) => {
-  res.status(404)
-     .render("404");
+  res.render("404").status(404);
 });
 
 export default app;
