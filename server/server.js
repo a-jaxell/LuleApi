@@ -77,7 +77,7 @@ app.get("/movies/:id", async (req, res) => {
   });
 }
 
-app.get("/fetch/:id", async (req, res) => {
+app.get("/api/upcoming-screenings/:id", async (req, res) => {
   const upcoming = await loadUpcomingScreenings(req.params.id);
   
   upcoming.length != 0 ?

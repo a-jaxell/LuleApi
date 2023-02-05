@@ -14,8 +14,7 @@ export default async function loadUpcomingScreenings(param) {
     .map((elem) => {
       return {
         room: elem.attributes.room,
-        date: elem.attributes.start_time.substring(0, 10),
-        time: elem.attributes.start_time.substring(11, 16),
+        date: elem.attributes.start_time,
       };
     });
 }
