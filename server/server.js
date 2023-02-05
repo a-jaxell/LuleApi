@@ -90,7 +90,7 @@ app.post("/movies/:id/review", async (req, res) => {
 }
 
 app.use((req, res) => {
-  res.render("404").status(404);
+  res.render("404"); //removed statuscode 404 to make it able to send data to server
 });
 
 export default app;
