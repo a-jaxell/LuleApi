@@ -31,16 +31,11 @@ app.get("/movies/:id", async (req, res) => {
 });
 
 app.post("/movies/:id/review", async (req, res) => {
-  const urlId = req.params.id;
-  await fetch(
-    `https://plankton-app-xhkom.ondigitalocean.app/api/reviews?filters%5Bmovie%5D=${urlId}`,
-    {
-      method: "POST",
-      mode: "cors",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(req.body),
-    }
-  );
+  await fetch("https://plankton-app-xhkom.ondigitalocean.app/api/reviews", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(req.body),
+  });
 });
 
 // TODO fixa repetativa getlisteners
