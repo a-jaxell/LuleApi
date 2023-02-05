@@ -42,26 +42,27 @@ async function getMovieRating() {
     return rating.attributes.rating;
   });
 
-  //function to get average rating.
-  function sumNumbers(array) {
-    let sum = 0;
+  //removing value of null if it exist
+  let nullValue = null;
+  allRating = allRating.filter((item) => item !== nullValue);
 
-    //removing value of null if it exist
-    let nullValue = null;
-    allRating = allRating.filter((item) => item !== nullValue);
+  if (allRating.length >= 5) {
+    const roundedRating = averageRating(allRating);
+
+    document.querySelector(".movie-rating").append(roundedRating);
+  }
+
+  //function to get average rating.
+  function averageRating(array) {
+    let sum = 0;
 
     //round rating to 1 decimal
     array.forEach((rating) => {
       sum += rating / allRating.length;
       sum = Math.round(sum * 10) / 10;
     });
-    console.log(allRating);
-    console.log(sum);
 
     return sum;
   }
-  const roundedRating = sumNumbers(allRating);
-
-  document.querySelector(".movie-rating").append(roundedRating);
 }
 getMovieRating();
