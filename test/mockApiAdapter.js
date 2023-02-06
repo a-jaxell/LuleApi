@@ -1,5 +1,5 @@
 export const mockApiAdapter = {
-    loadMockData: async () => {
+    loadData: async () => {
         return {
             "data": [
               {
