@@ -1,7 +1,10 @@
 import express from "express";
 import expressLayouts from "express-ejs-layouts";
-import apiAdapter from "./loadMovies.js";
-import loadUpcomingScreenings from "./loadUpcomingScreenings.js";
+import ApiAdapter from "./ApiAdapter.js";
+import loadMovies from "./loadMovies.js";
+import filterUpcomingScreenings from "./filterUpcomingScreenings.js";
+
+const apiAdapter = new ApiAdapter();
 
 const app = express();
 
@@ -15,15 +18,15 @@ app.use("/src", express.static("./src"));
 
 app.get("/", async (req, res) => {
   res.status(200)
-     .render("home", { movies: await apiAdapter() });
+     .render("home", { movies: await loadMovies() });
 });
 
 app.get("/movies/:id", async (req, res) => {
-  const movie = await apiAdapter(req.params.id);
+  const movie = await loadMovies(req.params.id);
 
   if (movie != undefined) {
     res.status(200)
-       .render("movies", { movie: await apiAdapter(req.params.id) });
+       .render("movies", { movie: await loadMovies(req.params.id) });
   } else {
     res.status(404)
        .render("thisMovieNotFound");
@@ -31,57 +34,28 @@ app.get("/movies/:id", async (req, res) => {
 });
 
 
-// TODO fixa repetativa getlisteners
-{
-  app.get("/openingHours", (req, res) => {
-    res.render("openingHours");
+  app.get([
+  "/openingHours",
+  "/bistro-menu",
+  "/booking",
+  "/about",
+  "/giftCard",
+  "/matine",
+  "/newsletter",
+  "/premiereFriday",
+  "/ticket-info",
+  "/upcoming",
+  "/WholeProgramPage"],
+   (req, res) => {
+    res.render(req.url.slice(1));
   });
-
-  app.get("/bistro-menu", (req, res) => {
-    res.render("bistro-menu");
-  });
-
-  app.get("/booking", (req, res) => {
-    res.render("booking");
-  });
-
-  app.get("/about", (req, res) => {
-    res.render("about");
-  });
-
-  app.get("/giftCard", (req, res) => {
-    res.render("giftCard");
-  });
-
-  app.get("/matine", (req, res) => {
-    res.render("matine");
-  });
-
-  app.get("/newsletter", (req, res) => {
-    res.render("newsLetter");
-  });
-
-  app.get("/premiereFriday", (req, res) => {
-    res.render("premiereFriday");
-  });
-
-  app.get("/ticket-info", (req, res) => {
-    res.render("ticket-info");
-  });
-  app.get("/upcoming", (req, res) => {
-    res.render("upcoming");
-  });
-
-  app.get("/WholeProgramPage", (req, res) => {
-    res.render("WholeProgramPage");
-  });
-}
 
 app.get("/api/upcoming-screenings/:id", async (req, res) => {
-  const upcoming = await loadUpcomingScreenings(req.params.id);
+  const load = await apiAdapter.loadUpcomingScreening(req.params.id);
+  const filteredData = filterUpcomingScreenings(load);
   
-  upcoming.length != 0 ?
-  res.send(upcoming) :
+  filteredData.length != 0 ?
+  res.send(filteredData) :
   res.send("Inga kommande visningar")
 })
 
