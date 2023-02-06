@@ -1,4 +1,6 @@
 import apiAdapter from './apiAdapter.js';
+import fetch from 'node-fetch';
+import { mockApiAdapter } from '../test/mockApiAdapter.js';
 
 export const getScreeningsWithMovies = async () => {
 
@@ -6,23 +8,37 @@ export const getScreeningsWithMovies = async () => {
     const data = await res.json();
 
     return data;
-}   
-
-// formatting data as I want it. with Each screening as top tier and containing move
+}
+// formatting data as I want it.
 export const getScreeningsList = async (apiHandler) => {
         
-    const data = await apiHandler;
-
-    const sortedData = data.map( array => {
-        return { id: array.id, 
-                 ...array.attributes,
-                 movie: {
-                     id: array.attributes.movie.data.id,
-                     ...array.attributes.movie.data.attributes
-                 }
-                }
-            });
-
-
-    return sortedData;
+    const data = await apiHandler.loadMockData();
+    
+    const res = data.data
+    
+    .map( array => ({
+        id: array.id, 
+        ...array.attributes,
+        movie: {
+            id: array.attributes.movie.data.id,
+            ...array.attributes.movie.data.attributes
+        }
+    }))
+     
+    .filter(screeningDate => {
+        const now = new Date();
+        return Date.parse(screeningDate.start_time) > now;   
+    })
+    .filter(screeningDate => {
+        const showTime = Date.parse(screeningDate.start_time); 
+        const now = new Date();
+        const fiveDays = 5 * 24 * 60 * 60 * 1000;
+        const tooFarAhead = Date.parse(now) + fiveDays;
+        return showTime < tooFarAhead;
+    })
+    .filter((screeningDate, index) => {
+        return index > 9 ? false : true;
+    })
+    return res;
 }
+console.log(await getScreeningsList(mockApiAdapter));
