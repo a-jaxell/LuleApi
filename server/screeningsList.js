@@ -9,7 +9,7 @@ export const getScreeningsWithMovies = async () => {
 
     return data;
 }
-// formatting data as I want it.
+// Formatting JSON and filtering JSON to send only relevant data for rendering. 
 export const getScreeningsList = async (apiHandler) => {
         
     const data = await apiHandler.loadMockData();
