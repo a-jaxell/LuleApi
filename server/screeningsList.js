@@ -2,17 +2,19 @@ import apiAdapter from './apiAdapter.js';
 import fetch from 'node-fetch';
 import { mockApiAdapter } from '../test/mockApiAdapter.js';
 
-export const getScreeningsWithMovies = async () => {
+export const getScreeningsWithMovies = {
+     loadData : async () => {
 
     const res = await fetch("https://plankton-app-xhkom.ondigitalocean.app/api/screenings?populate=movie");
     const data = await res.json();
 
     return data;
+    }
 }
 // Formatting and filtering JSON to send only relevant data for rendering. 
 export const getScreeningsList = async (apiHandler) => {
         
-    const data = await apiHandler.loadMockData();
+    const data = await apiHandler.loadData();
     
     const res = data.data
     
@@ -41,4 +43,3 @@ export const getScreeningsList = async (apiHandler) => {
     })
     return res;
 }
-console.log(await getScreeningsList(mockApiAdapter));
