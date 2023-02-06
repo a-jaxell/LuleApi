@@ -14,16 +14,19 @@ async function getReviews() {
     const reviews = await res.json();
     console.log("Recensioner: "+reviews);
     reviews.forEach(review => {  
-        
         const li = document.createElement("li")
         li.className = "reviews"
         const author = document.createElement("p")
+        author.classList.add("author");
         author.innerText = review.author;
         const rating = document.createElement("p")
-        rating.innerText = review.rating;
+        rating.classList.add("reviewRating");
+        rating.innerText = review.comment;
         const comment = document.createElement("p")
-        comment.innerText = review.comment;
-        li.append(author, rating,comment);
+        comment.classList.add("reviewComment");
+        comment.innerText = review.rating;
+        const horizontalLine = document.createElement("hr");
+        li.append(author,rating,comment,horizontalLine);
         container.append(li);
         
     });
