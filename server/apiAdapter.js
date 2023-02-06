@@ -26,17 +26,3 @@ export default async function apiAdapter(param) {
     } catch (err) {}
   }
 }
-
-/*
-Get reviews for movie x
-params is an array of parameters
-first movieId
-second pageNumber
-third pageSize
-*/
-export async function getReviews(params){
-  const reviewbaseUrl = "https://plankton-app-xhkom.ondigitalocean.app/api/reviews/";
-  const res = params ? await fetch(reviewbaseUrl + "?filters[movie]=" + params[0]+"&pagination[pageSize]=5") : await fetch(baseUrl);
-  console.log(res);
-  return await res.json();
-}

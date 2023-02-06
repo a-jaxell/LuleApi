@@ -1,7 +1,7 @@
 import express from "express";
 import expressLayouts from "express-ejs-layouts";
 import apiAdapter from "./apiAdapter.js";
-import { getReviews } from "./apiAdapter.js";   
+import { loadReviews } from "./loadReviews.js";
 
 const app = express();
 
@@ -21,14 +21,27 @@ app.get("/", async (req, res) => {
 app.get("/movies/:id", async (req, res) => {
   const movie = await apiAdapter(req.params.id);
   if (movie != undefined) {
-    const reviews = await getReviews(req.params.id, 5);
-    console.log(reviews);
     res.status(200)
-       .render("movies", {movie, reviews});
+       .render("movies", {movie});
   } else {
     res.status(404)
        .render("thisMovieNotFound");
   }
+});
+
+//Get reviews, takes movie id as parameter.
+//calls server function loadReviews.
+//Then sends response back to frontend
+app.get("/reviews/:id", async (req, res) => {
+  console.log("filmid: "+req.params.id);
+  const reviews = await loadReviews(req.params.id);
+  res.send(reviews)
+});
+
+app.get("/reviews/", async (req, res) => {
+  console.log("filmid: "+req.params.id);
+  const reviews = await loadReviews();
+  res.send(reviews)
 });
 
 // TODO fixa repetativa getlisteners
