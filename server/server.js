@@ -1,6 +1,6 @@
 import express from "express";
 import expressLayouts from "express-ejs-layouts";
-import apiAdapter from "./apiAdapter.js";
+import apiAdapter from "./loadMovies.js";
 import loadUpcomingScreenings from "./loadUpcomingScreenings.js";
 
 const app = express();
