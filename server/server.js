@@ -29,16 +29,18 @@ app.get("/movies/:id", async (req, res) => {
   }
 });
 
-//Get reviews, takes movie id as parameter.
-//calls server function loadReviews.
+//Get reviews, takes movieId and pageNumber as parameters.
+//calls server function loadReviewsForPageX.
 //Then sends response back to frontend
-app.get("/reviews/:id", async (req, res) => {
+app.get("/reviews/:id/:page", async (req, res) => {
   console.log("filmid: "+req.params.id);
-  const reviews = await loadReviews(req.params.id);
+  console.log("sida: "+req.params.page);
+  const reviews = await loadReviewsForPageX(req.params.id,req.params.page);
   res.send(reviews)
 });
 
-app.get("/reviews/", async (req, res) => {
+//Get all reviews for a movie
+app.get("/reviews/:id", async (req, res) => {
   console.log("filmid: "+req.params.id);
   const reviews = await loadReviews();
   res.send(reviews)
