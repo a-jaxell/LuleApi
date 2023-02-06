@@ -1,7 +1,7 @@
 import express from "express";
 import expressLayouts from "express-ejs-layouts";
 import apiAdapter from "./apiAdapter.js";
-
+import { screeningsRouter } from "./screeningsRouter.js";
 const app = express();
 
 app.set("layout", "../views/layouts/layout.ejs");
@@ -16,7 +16,7 @@ app.get("/", async (req, res) => {
   res.status(200)
      .render("home", { movies: await apiAdapter() });
 });
-
+app.use('/screenings', screeningsRouter);
 app.get("/movies/:id", async (req, res) => {
   const movie = await apiAdapter(req.params.id);
 
