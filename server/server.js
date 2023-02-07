@@ -35,7 +35,7 @@ app.get("/movies/:id", async (req, res) => {
 app.get("/reviews/:id/:page", async (req, res) => {
   console.log("filmid: "+req.params.id);
   console.log("sida: "+req.params.page);
-  const reviews = await loadReviewsForPageX(req.params.id,req.params.page);
+  const reviews = await loadReviews(req.params);
   res.send(reviews)
 });
 

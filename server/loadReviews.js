@@ -6,7 +6,7 @@ import fetch from "node-fetch";
     const reviewbaseUrl = "https://plankton-app-xhkom.ondigitalocean.app/api/reviews/";
     console.log(params[0]);
     //Result from call to API
-    const res = params ? await fetch(reviewbaseUrl + "?filters[movie]=" + params[0]) : await fetch(reviewbaseUrl);
+    const res = params ? await fetch(reviewbaseUrl + "?filters[movie]=" + params[0]+"&pagination[pageSize=5") : await fetch(reviewbaseUrl);
     //Convert to JSON
     const data = await res.json();
     return data.data
