@@ -1,5 +1,5 @@
 import express from 'express';
-import { getScreeningsWithMovies, getScreeningsList } from './screeningsList.js';
+import { getScreeningsWithMovies, getScreeningsList } from '../screeningsList.js';
 
 export const screeningsRouter = express.Router();
 
