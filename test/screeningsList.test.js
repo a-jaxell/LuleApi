@@ -1,4 +1,4 @@
-import { getScreeningsList, getScreeningsWithMovies } from '../server/screeningsList.js';
+import { getScreeningsList } from '../server/screeningsList.js';
 import { mockApiAdapter } from './mockApiAdapter.js'
 import { jest, test, describe, expect } from '@jest/globals';
 
