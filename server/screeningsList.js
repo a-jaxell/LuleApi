@@ -1,6 +1,4 @@
-import apiAdapter from './apiAdapter.js';
 import fetch from 'node-fetch';
-import { mockApiAdapter } from '../test/mockApiAdapter.js';
 
 export const getScreeningsWithMovies = {
     loadData : async () => {
