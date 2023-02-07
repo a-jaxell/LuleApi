@@ -42,7 +42,7 @@ app.get("/reviews/:id/:page", async (req, res) => {
 //Get all reviews for a movie
 app.get("/reviews/:id", async (req, res) => {
   console.log("filmid: "+req.params.id);
-  const reviews = await loadReviews();
+  const reviews = await loadReviews(req.params.id);
   res.send(reviews)
 });
 
