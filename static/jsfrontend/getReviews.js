@@ -1,3 +1,8 @@
+const buttonNext = document.querySelector("#buttonNext");
+const buttonPrev = document.querySelector("#buttonPrevious");
+buttonNext.addEventListener("click", getNextPage);
+buttonPrev.addEventListener("click", getPreviousPage);
+
 //Get the current URL to get the movie ID and split into segments at each /
 const segments = new URL(document.URL).pathname.split('/');
 // Handle potential trailing slash
@@ -16,10 +21,19 @@ getReviews();
 
 //Call getReviews using fetch
 //Parse the data and put into HTML
-async function getReviews() {
+async function getReviews(wantedPage) {
+    if (wantedPage !== null){
+        currentPage=wantedPage;
+    }
+    console.log("totalt sidor:" + totalPages)
     const res = await fetch("/reviews/" + movieID+"?page="+page);
     const reviews = await res.json();
     console.log("Recensioner: "+reviews);
+    var child = container.lastElementChild; 
+        while (child) {
+            container.removeChild(child);
+            child = container.lastElementChild;
+        }
     reviews.reviews.data.forEach(review => {  
         const li = document.createElement("li")
         li.className = "reviews"
@@ -43,17 +57,16 @@ async function getNextPage() {
 	if (currentPage != totalPages) {
 		currentPage++;
 	}
-	await getReviews();
+	await getReviews(currentPage);
 }
 
 async function getPreviousPage() {
 	if (currentPage != 1) {
 		currentPage--;
 	}
-	await getReviews();
+	await getReviews(currentPage);
 }
 
 async function onPageLoad() {
 	await getReviews();
-	totalPages = reviews.pages.pageCount;
 }
