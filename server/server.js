@@ -31,24 +31,8 @@ app.get("/movies/:id", async (req, res) => {
     res.status(404)
        .render("thisMovieNotFound");
   }
+
 });
-
-
-  app.get([
-  "/openingHours",
-  "/bistro-menu",
-  "/booking",
-  "/about",
-  "/giftCard",
-  "/matine",
-  "/newsletter",
-  "/premiereFriday",
-  "/ticket-info",
-  "/upcoming",
-  "/WholeProgramPage"],
-   (req, res) => {
-    res.render(req.url.slice(1));
-  });
 
 app.get("/api/upcoming-screenings/:id", async (req, res) => {
   const load = await apiAdapter.loadUpcomingScreening(req.params.id);
@@ -58,6 +42,23 @@ app.get("/api/upcoming-screenings/:id", async (req, res) => {
   res.send(filteredData) :
   res.send("Inga kommande visningar")
 })
+
+app.get([
+"/openingHours",
+"/bistro-menu",
+"/booking",
+"/about",
+"/giftCard",
+"/matine",
+"/newsletter",
+"/premiereFriday",
+"/ticket-info",
+"/upcoming",
+"/WholeProgramPage"],
+ (req, res) => {
+  res.render(req.url.slice(1));
+});
+
 
 
 app.use((req, res) => {
