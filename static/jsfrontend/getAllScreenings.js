@@ -4,11 +4,11 @@ const container = document.querySelector(".screening-container");
 const renderScreenings = async () => {
         
         const res = await fetch("/screenings");
+        
         const data = await res.json();
-
+        
         const screeningList = document.createElement('ul');
         screeningList.className = "screening-list-main-page";
-        screeningList.append(
 
         data.forEach(ele => {
             
@@ -42,7 +42,7 @@ const renderScreenings = async () => {
             showRoom.className = "screening-room";
             screeningDetails.appendChild(showRoom);
 
-        }));
+        });
         container.append(screeningList);
 }
 renderScreenings();
