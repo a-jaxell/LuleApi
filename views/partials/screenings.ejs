@@ -1,12 +1,3 @@
 
-
 <h2 class="screenings">Kommande visningar</h2>
-<ul class="screenings screenings-list">
-<% screenings.forEach( (screening) => { %>
-    <li class="screenings screenings-list-item">
-        <%= screenings.start_time screenings.room%> 
-        <a href="/<%= screenings.id %> }"><%= screenings.movie.title %></a>
-        <img src="<%= screenings.movie.image.url  %> ">
-    </li>
-<% }); %> 
-</ul>
+<script src="./static/jsfrontend/getAllScreenings.js"></script>
