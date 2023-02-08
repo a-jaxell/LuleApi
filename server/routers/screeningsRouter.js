@@ -7,8 +7,7 @@ screeningsRouter.get("/", async (req, res) => {
     const screenings = await getScreeningsList(getScreeningsWithMovies);
 
     if(screenings){
-        console.log(screenings);
-        res.send({ screenings });
+        res.send(screenings);
     } else {
         res.status(500).send();
     }

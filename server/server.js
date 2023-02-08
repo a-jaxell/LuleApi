@@ -1,7 +1,7 @@
 import express from "express";
 import expressLayouts from "express-ejs-layouts";
 import apiAdapter from "./apiAdapter.js";
-import { screeningsRouter } from "./screeningsRouter.js";
+import { screeningsRouter } from "./routers/screeningsRouter.js";
 const app = express();
 
 app.set("layout", "../views/layouts/layout.ejs");

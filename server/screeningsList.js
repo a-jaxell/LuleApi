@@ -28,6 +28,7 @@ export const getScreeningsList = async (apiHandler) => {
         const now = new Date();
         return Date.parse(screeningDate.start_time) > now;   
     })
+    // TODO : Add parsing of datestring to swedish format. 
     .filter(screeningDate => {
         const showTime = Date.parse(screeningDate.start_time); 
         const now = new Date();
