@@ -817,3 +817,48 @@ main {
     max-width: 1000px;
   }
 }
+.screening {
+  font-family: "Inter", sans-serif;
+  color: #112d4e;
+}
+
+.screening-container {
+  display: flex;
+  justify-content: center;
+}
+
+#screening-header {
+  font-size: 3em;
+  margin: 1em;
+  text-align: center;
+}
+
+.screening .screening-list-image {
+  max-width: 100px;
+  height: auto;
+  align-self: left;
+}
+
+.screening-list-main-page {
+  margin: 3em, auto, 2em, 2em;
+}
+
+.screening-item {
+  display: flex;
+  flex-direction: row;
+  margin: 2em auto;
+}
+.screening-item a {
+  text-decoration: none;
+}
+.screening-item .movie-details {
+  display: flex;
+  flex-direction: column;
+}
+.screening-item .movie-title {
+  font-size: 2em;
+}
+.screening-item .movie-title, .screening-item .screening-room, .screening-item .screening-time {
+  margin-left: 1rem;
+  margin-top: 1rem;
+}
