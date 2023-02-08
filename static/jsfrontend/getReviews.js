@@ -22,12 +22,13 @@ getReviews();
 //Call getReviews using fetch
 //Parse the data and put into HTML
 async function getReviews(wantedPage) {
-    if (wantedPage !== null){
+    if (wantedPage !== undefined){
         currentPage=wantedPage;
     }
     console.log("totalt sidor:" + totalPages)
-    const res = await fetch("/reviews/" + movieID+"?page="+page);
+    const res = await fetch("/reviews/" + movieID+"?page="+currentPage);
     const reviews = await res.json();
+    totalPages = reviews.pages.pagination.pageCount;
     console.log("Recensioner: "+reviews);
     var child = container.lastElementChild; 
         while (child) {
@@ -54,14 +55,14 @@ async function getReviews(wantedPage) {
 }
 
 async function getNextPage() {
-	if (currentPage != totalPages) {
+	if (currentPage !== totalPages) {
 		currentPage++;
 	}
 	await getReviews(currentPage);
 }
 
 async function getPreviousPage() {
-	if (currentPage != 1) {
+	if (currentPage !== 1) {
 		currentPage--;
 	}
 	await getReviews(currentPage);
