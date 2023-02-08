@@ -9,7 +9,6 @@ const segments = new URL(document.URL).pathname.split('/');
 const movieID = segments.pop() || segments.pop(); 
 //Get the conainer where to put the resulting HTML code
 const container = document.querySelector("#reviewContainer");
-console.log("movieID i JS frontend: " + movieID);
 const params = new URLSearchParams(window.location.search);
 let page = params.get("page")
 let totalPages = 1;
@@ -25,16 +24,19 @@ async function getReviews(wantedPage) {
     if (wantedPage !== undefined){
         currentPage=wantedPage;
     }
-    console.log("totalt sidor:" + totalPages)
+    //Get the reviews for movie with ID=movieID and page=currentPage
     const res = await fetch("/reviews/" + movieID+"?page="+currentPage);
+    //Get JSON data
     const reviews = await res.json();
+    //Get pageCount
     totalPages = reviews.pages.pagination.pageCount;
-    console.log("Recensioner: "+reviews);
+    //If we have reviews in container, delete them first
     var child = container.lastElementChild; 
         while (child) {
             container.removeChild(child);
             child = container.lastElementChild;
         }
+    //Add new HTML elements to page with reviewInfo
     reviews.reviews.data.forEach(review => {  
         const li = document.createElement("li")
         li.className = "reviews"
@@ -54,6 +56,7 @@ async function getReviews(wantedPage) {
     
 }
 
+//Get next page with reviews as long as currentPage is not equal to pageCount
 async function getNextPage() {
 	if (currentPage !== totalPages) {
 		currentPage++;
@@ -61,13 +64,10 @@ async function getNextPage() {
 	await getReviews(currentPage);
 }
 
+//Get previousPage as long as currentPage not equal to first page
 async function getPreviousPage() {
 	if (currentPage !== 1) {
 		currentPage--;
 	}
 	await getReviews(currentPage);
-}
-
-async function onPageLoad() {
-	await getReviews();
 }
