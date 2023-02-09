@@ -13,72 +13,17 @@
   
   <form id="form">
     <input id="name" type="text">
-    <input id="comment" type="text">
+    <section>
+        <input name="rating" type="radio" value="0" checked="checked">  
+        <input name="rating" type="radio" value="1">
+        <input name="rating" type="radio" value="2">
+        <input name="rating" type="radio" value="3">
+        <input name="rating" type="radio" value="4">
+        <input name="rating" type="radio" value="5">
+    </section>
+    <textarea id="comment"></textarea>
     <button id="submit">Submit</button>
   </form>
   
-  
-  
-  <script>
-    postReview();
-    
-    function postReview() {
-  
-  
-        const form = document.querySelector("#form")
-        const name = document.querySelector("#name")
-        const comment = document.querySelector("#comment")
-        const btn = document.querySelector("#submit")
-  
-        btn.addEventListener( 'click', () => {
-  
-            const data = {
-                name: name.value ,
-                comment: comment.value ,
-            }
-  
-            const options = {
-  
-                method: "POST",
-                headers: {
-                    "Content-type": "application/json"
-                },
-                body: JSON.stringify(data)  
-            }
-  
-            fetch("/postRoute", options);
-  
-  
-        })
-  
-  
-    }
-  
-  
-  
-  
-  
-  
-        
-    
-  
-  
-  
-  
-  
-  
-  
-  </script>
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  <script src="../static/jsfrontend/getUpcomingScreenings.js"></script>
+  <script src="/static/jsfrontend/postReview.js"></script>
+  <script src="/static/jsfrontend/getUpcomingScreenings.js"></script>
