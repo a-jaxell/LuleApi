@@ -1,6 +1,9 @@
 import express from "express";
 import expressLayouts from "express-ejs-layouts";
 import apiAdapter from "./apiAdapter.js";
+import bodyParser from "body-parser";
+import { body, validationResult } from "express-validator";
+
 
 const app = express();
 
@@ -8,6 +11,8 @@ app.set("layout", "../views/layouts/layout.ejs");
 app.set("view engine", "ejs");
 
 app.use(expressLayouts);
+app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.json());
 app.use("/static", express.static("./static"));
 app.use("/js", express.static("./static/jsfrontend"));
 app.use("/src", express.static("./src"));
@@ -28,6 +33,26 @@ app.get("/movies/:id", async (req, res) => {
        .render("thisMovieNotFound");
   }
 });
+
+app.post('/test',
+  body('author').isLength({min: 3}),
+  body('comment').iLength({min: 3}),
+  body('rating').isLength({min: 1,max: 2 }).isInt({min:0, max:5
+  }),
+  (req,res) => {
+    const errors = validationResult(req);
+
+    if (!errors.isEmpty()){
+      return res.status(400).json({
+        success: false,
+        errors: errors.array()
+      });
+    }
+    res.status(200).json({
+      success: true,
+      message: 'post successful'
+    })
+  });
 
 // TODO fixa repetativa getlisteners
 {
