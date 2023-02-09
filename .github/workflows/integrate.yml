@@ -14,3 +14,23 @@ jobs:
           node-version: 16
       - run: npm ci
       - run: npm test 
+
+
+name: Building Docker image
+
+on:
+  push:
+    branches: [ main ]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v2
+
+      - name: Build docker image
+        uses: docker/build-push-action@v2
+        with:
+          push: true
+          tags: LuleApiImg
