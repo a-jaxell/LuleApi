@@ -11,6 +11,8 @@ const app = express();
 app.set("layout", "../views/layouts/layout.ejs");
 app.set("view engine", "ejs");
 
+
+
 app.use(expressLayouts);
 app.use("/static", express.static("./static"));
 app.use("/js", express.static("./static/jsfrontend"));
@@ -33,6 +35,19 @@ app.get("/movies/:id", async (req, res) => {
   }
 
 });
+
+app.post("/movies/:id/postRoute", (req, res) => {
+  
+  const data = req.body
+  
+
+  console.log(req.params.id)
+  console.log(req.body)
+  res.status(200)
+  res.redirect(`/movies/${req.params.movieId}`)
+
+});
+
 
 app.get("/api/upcoming-screenings/:id", async (req, res) => {
   const load = await apiAdapter.loadUpcomingScreening(req.params.id);
