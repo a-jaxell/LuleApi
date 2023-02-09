@@ -10,3 +10,11 @@ sendReviewServer.post("/movies/:id/review", async (req, res) => {
     body: JSON.stringify(req.body),
   });
 });
+
+export async function getReview() {
+  const res = await fetch(
+    "https://plankton-app-xhkom.ondigitalocean.app/api/reviews"
+  );
+  const dataReview = await res.json();
+  return dataReview.data;
+}
