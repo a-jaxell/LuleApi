@@ -1,6 +1,7 @@
 import express from "express";
 import expressLayouts from "express-ejs-layouts";
 import apiAdapter from "./apiAdapter.js";
+import { sendReviewServer } from "./sendReview.js";
 
 const app = express();
 
@@ -68,13 +69,8 @@ app.get("/movies/:id/rating", async (req, res) => {
   }
 });
 
-app.post("/movies/:id/review", async (req, res) => {
-  await fetch("https://plankton-app-xhkom.ondigitalocean.app/api/reviews", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(req.body),
-  });
-});
+//till /movies/:id/review
+app.use(sendReviewServer);
 
 // TODO fixa repetativa getlisteners
 {
