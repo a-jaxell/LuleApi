@@ -7,37 +7,40 @@ const sendBtn = document.querySelector(".send-btn");
 const idUrl = document.location.toString();
 const movieId = idUrl.slice(29, 30);
 
-sendBtn.addEventListener("click", async function () {
-  event.preventDefault();
-  if (firstName.value === "") {
-    alert("Du har inte fyllt förnamn");
-  } else if (lastName.value === "") {
-    alert("Du har inte fyllt efternamn");
-  } else if (commentField.value === "") {
-    alert("Du har inte angivit någon kommentar");
-  } else {
-    await fetch(`${movieId}/review`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-
-      body: JSON.stringify({
-        data: {
-          comment: commentField.value,
-          rating: rating.value,
-          author: firstName.value + " " + lastName.value,
-          verified: true,
-          movie: movieId,
-        },
-      }),
-    });
+if (sendBtn) {
+  async function getMovieRating() {
+    const response = await fetch(
+      `http://localhost:5080/movies/${movieId}/rating`
+    );
+    const dataJson = await response.json();
+    document.querySelector(".movie-rating").append(dataJson.body);
   }
-});
-async function getMovieRating() {
-  const response = await fetch(
-    `http://localhost:5080/movies/${movieId}/rating`
-  );
-  const dataJson = await response.json();
-  document.querySelector(".movie-rating").append(dataJson.body);
-}
 
-getMovieRating();
+  getMovieRating();
+
+  sendBtn.addEventListener("click", async function () {
+    event.preventDefault();
+    if (firstName.value === "") {
+      alert("Du har inte fyllt förnamn");
+    } else if (lastName.value === "") {
+      alert("Du har inte fyllt efternamn");
+    } else if (commentField.value === "") {
+      alert("Du har inte angivit någon kommentar");
+    } else {
+      await fetch(`${movieId}/review`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+
+        body: JSON.stringify({
+          data: {
+            comment: commentField.value,
+            rating: rating.value,
+            author: firstName.value + " " + lastName.value,
+            verified: true,
+            movie: movieId,
+          },
+        }),
+      });
+    }
+  });
+}
