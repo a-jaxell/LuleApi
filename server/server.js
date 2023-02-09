@@ -12,11 +12,13 @@ app.set("layout", "../views/layouts/layout.ejs");
 app.set("view engine", "ejs");
 
 
-
+app.use(express.json({limit: "1mb"}));
 app.use(expressLayouts);
 app.use("/static", express.static("./static"));
 app.use("/js", express.static("./static/jsfrontend"));
 app.use("/src", express.static("./src"));
+
+
 
 app.get("/", async (req, res) => {
   res.status(200)
@@ -36,15 +38,11 @@ app.get("/movies/:id", async (req, res) => {
 
 });
 
-app.post("/movies/:id/postRoute", (req, res) => {
-  
-  const data = req.body
-  
+app.post("/postRoute", async (req, res) => {
 
-  console.log(req.params.id)
-  console.log(req.body)
-  res.status(200)
-  res.redirect(`/movies/${req.params.movieId}`)
+  console.log(req.body);
+  // const ggg = await req.body
+  // console.log(ggg)
 
 });
 
@@ -73,8 +71,6 @@ app.get([
  (req, res) => {
   res.render(req.url.slice(1));
 });
-
-
 
 app.use((req, res) => {
   res.status(404)
