@@ -42,9 +42,7 @@ async function sendForm() {
   }
 }
 async function getMovieRating() {
-  const response = await fetch(
-    `http://localhost:5080/movies/${movieId}/rating`
-  );
+  const response = await fetch(`/movies/${movieId}/rating`);
   const dataJson = await response.json();
   document.querySelector(".movie-rating").append(dataJson.body);
 }
