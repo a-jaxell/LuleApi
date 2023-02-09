@@ -8,4 +8,4 @@ RUN npm install
 
 ADD . /app
 
-CMD npm run startServ
+CMD [npm run server]

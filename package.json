@@ -7,7 +7,7 @@
     "sass": "sass --no-source-map src/main.scss static/main.css",
     "watch": "sass --no-source-map --watch src/main.scss static/main.css",
     "start": "nodemon .",
-    "startServ": "node /server/app.js",
+    "server": "node /server/app.js",
     "test": "cross-env NODE_OPTIONS=--experimental-vm-modules jest"
   },
   "repository": {
