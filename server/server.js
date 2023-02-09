@@ -3,6 +3,7 @@ import expressLayouts from "express-ejs-layouts";
 import apiAdapter from "./apiAdapter.js";
 import { sendReviewServer } from "./sendReview.js";
 import { displayRating } from "./rating.js";
+import { jwtProtected, jwtSend } from "./jwt.js";
 
 const app = express();
 
@@ -37,6 +38,9 @@ app.use(displayRating);
 
 // /movies/:id/review
 app.use(sendReviewServer);
+
+app.use(jwtSend);
+app.use(jwtProtected);
 
 // TODO fixa repetativa getlisteners
 {

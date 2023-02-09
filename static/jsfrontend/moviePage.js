@@ -45,3 +45,47 @@ if (sendBtn) {
     }
   });
 }
+
+document.querySelector(".testBtn").addEventListener("click", function () {
+  event.preventDefault();
+  jwt();
+});
+
+async function jwt() {
+  //get id from url
+  const idUrl = new URL(document.URL).pathname.split("/");
+  const movieId = idUrl.pop() || idUrl.pop();
+
+  const firstName = document.querySelector(".hej").value;
+  const lastName = document.querySelector(".då").value;
+  const capitalCityStockholm = document.querySelector(".capital-city").value;
+
+  const credentials = `${firstName}:${lastName}`;
+  const b64 = btoa(credentials);
+
+  const data = { capital: capitalCityStockholm };
+
+  const resToken = await fetch(
+    `http://localhost:5080/movies/${movieId}/sendReview`,
+    {
+      method: "POST",
+
+      headers: {
+        Authorization: "Basic " + b64,
+        "Content-Type": "application/json",
+      },
+
+      body: JSON.stringify({
+        data,
+      }),
+    }
+  );
+  const dataToken = await resToken.json();
+  console.log(dataToken);
+
+  const res = await fetch(`http://localhost:5080/movies/${movieId}/protected`, {
+    headers: { Authorization: "Bearer " + dataToken.token },
+  });
+  const payload = await res.json();
+  console.log(payload);
+}
