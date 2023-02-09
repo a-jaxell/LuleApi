@@ -25,7 +25,6 @@ displayRating.get("/movies/:id/rating", async (req, res) => {
   //removing value of null if it exist
   let nullValue = null;
   allRating = allRating.filter((item) => item !== nullValue);
-  console.log(allRating);
 
   let sum = allRating.reduce(function (a, b) {
     return a + b;

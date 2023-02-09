@@ -18,4 +18,3 @@ export async function getReview() {
   const dataReview = await res.json();
   return dataReview.data;
 }
-getReview();
