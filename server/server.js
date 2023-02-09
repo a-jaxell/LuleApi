@@ -33,11 +33,23 @@ app.get("/movies/:id", async (req, res) => {
        .render("thisMovieNotFound");
   }
 });
-
+/*
+app.post("/movies/:id/review", async (req, res) => {
+  await fetch("https://plankton-app-xhkom.ondigitalocean.app/api/reviews", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(req.body),
+  });
+});
+*/
+//using middleware express-validator to validate userinput
+//author lenght - min 3
+//comment length - min 3
+//rating integer min 0 max 5
 app.post('/test',
   body('author').isLength({min: 3}),
   body('comment').iLength({min: 3}),
-  body('rating').isLength({min: 1,max: 2 }).isInt({min:0, max:5
+  body('rating').isInt({min:0, max:5
   }),
   (req,res) => {
     const errors = validationResult(req);
