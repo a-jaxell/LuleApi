@@ -46,12 +46,12 @@ app.post("/movies/:id/review", async (req, res) => {
 //author lenght - min 3
 //comment length - min 3
 //rating integer min 0 max 5
-app.post('/test',
+app.post("/movies/:id/review",
   body('author').isLength({min: 3}),
   body('comment').iLength({min: 3}),
   body('rating').isInt({min:0, max:5
   }),
-  (req,res) => {
+  async (req,res) => {
     const errors = validationResult(req);
 
     if (!errors.isEmpty()){
