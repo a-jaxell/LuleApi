@@ -28,15 +28,14 @@ export function roundRating(passInData) {
 
     return roundedRating;
 }
-
+const API_BASE = "https://plankton-app-xhkom.ondigitalocean.app/api";
 export async function loadReview() {
     const rev = await fetch(API_BASE + "/movies/" + 2);
     const payload = await rev.json();
 
-    // const IMDB_ID = payload.data.attributes.imdbId;
     // const IMDB_ID = JSON.stringify(payload).id;
     const IMDB_ID = payload.data.attributes.imdbId;
-    //const IMDB_ID = "tt2953050";
+    //const IMDB_ID = "tt2953050"; hårdkodad imdbID
     const OMDB_API = await fetch(
         `http://www.omdbapi.com/?i=${IMDB_ID}&apikey=951b6bb2`
         // "http://www.omdbapi.com/?i=tt3896198&apikey=951b6bb2"
@@ -47,6 +46,7 @@ export async function loadReview() {
     console.log(OMDB_DATA.imdbRating);
     return OMDB_DATA.imdbRating;
 }
+loadReview();
 
 displayRating.get("/movies/:id/rating", async(req, res) => {
     const movieID = req.params.id;
