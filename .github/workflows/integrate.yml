@@ -14,23 +14,44 @@ jobs:
           node-version: 16
       - run: npm ci
       - run: npm test 
-
-
-name: Building Docker image
-
-on:
-  push:
-    branches: [ main ]
-jobs:
-  build:
+      
+  format:
     runs-on: ubuntu-latest
-    
-    steps:
-      - name: Checkout Code
-        uses: actions/checkout@v2
 
-      - name: Build docker image
-        uses: docker/build-push-action@v2
-        with:
-          push: true
-          tags: LuleApiImg
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Install dependencies
+      run: |
+        npm ci
+
+    - name: Run Prettier
+      run: |
+        npx prettier --write "**/*.{js,json,md}"
+
+    - name: Commit and push changes
+      run: |
+        git config user.email "prettier-bot@example.com"
+        git config user.name "Prettier Bot"
+        git add .
+        git diff-index --quiet HEAD || git commit -m "Format code with Prettier"
+        git push origin HEAD
+# name: Building Docker image
+
+# on:
+#   push:
+#     branches: [ main ]
+# jobs:
+#   build:
+#     runs-on: ubuntu-latest
+    
+#     steps:
+#       - name: Checkout Code
+#         uses: actions/checkout@v2
+
+#       - name: Build docker image
+#         uses: docker/build-push-action@v2
+#         with:
+#           push: true
+#           tags: LuleApiImg
