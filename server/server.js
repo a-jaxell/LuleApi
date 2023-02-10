@@ -3,7 +3,7 @@ import expressLayouts from "express-ejs-layouts";
 import ApiAdapter from "./ApiAdapter.js";
 import loadMovies from "./loadMovies.js";
 import filterUpcomingScreenings from "./filterUpcomingScreenings.js";
-import apiAdapter from "./apiAdapter.js";
+
 import { screeningsRouter } from "./routers/screeningsRouter.js";
 import { loadReviews } from "./loadReviews.js";
 import { sendReviewServer } from "./sendReview.js";
@@ -25,20 +25,20 @@ app.use(express.json());
 app.use(express.urlencoded());
 
 app.get("/", async (req, res) => {
-  res.status(200)
-     .render("home", { movies: await loadMovies() });
+  res.status(200).render("home", { movies: await loadMovies() });
 });
-app.use('/screenings', screeningsRouter);
+app.use("/screenings", screeningsRouter);
 app.get("/movies/:id", async (req, res) => {
   const movie = await loadMovies(req.params.id);
 
   if (movie != undefined) {
-
-    res.status(200)
-       .render("movies", { movie: await loadMovies(req.params.id) });
+    res
+      .status(200)
+      .render("movies", { movie: await loadMovies(req.params.id) });
   } else {
     res.status(404).render("thisMovieNotFound");
   }
+});
 
 //to display rating /movies/:id/rating
 app.use(displayRating);
@@ -50,18 +50,9 @@ app.use(jwtSend);
 app.use(jwtProtected);
 
 // TODO fixa repetativa getlisteners
-{
-  app.get("/openingHours", (req, res) => {
-    res.render("openingHours");
-  });
 
-//Get reviews, takes movieId and pageNumber as parameters.
-//calls server function loadReviewsForPageX.
-//Then sends response back to frontend
-app.get("/reviews/:id/", async (req, res) => {
-  const page = req.query.page;
-  const reviews = await loadReviews(req.params.id,page);
-  res.send(reviews)
+app.get("/openingHours", (req, res) => {
+  res.render("openingHours");
 });
 
 //Get reviews, takes movieId and pageNumber as parameters.
@@ -69,13 +60,13 @@ app.get("/reviews/:id/", async (req, res) => {
 //Then sends response back to frontend
 app.get("/reviews/:id/", async (req, res) => {
   const page = req.query.page;
-  const reviews = await loadReviews(req.params.id,page);
-  res.send(reviews)
+  const reviews = await loadReviews(req.params.id, page);
+  res.send(reviews);
 });
 
-  app.get("/about", (req, res) => {
-    res.render("about");
-  });
+app.get("/about", (req, res) => {
+  res.render("about");
+});
 
 // /movies/:id/review
 app.use(sendReviewServer);
@@ -83,29 +74,30 @@ app.use(sendReviewServer);
 app.get("/api/upcoming-screenings/:id", async (req, res) => {
   const load = await apiAdapter.loadUpcomingScreening(req.params.id);
   const filteredData = filterUpcomingScreenings(load);
-  
-  filteredData.length != 0 ?
-  res.send(filteredData) :
-  res.send("Inga kommande visningar")
-})
 
-app.get([
-"/openingHours",
-"/bistro-menu",
-"/booking",
-"/about",
-"/giftCard",
-"/matine",
-"/newsletter",
-"/premiereFriday",
-"/ticket-info",
-"/upcoming",
-"/WholeProgramPage"],
- (req, res) => {
-  res.render(req.url.slice(1));
+  filteredData.length != 0
+    ? res.send(filteredData)
+    : res.send("Inga kommande visningar");
 });
 
-
+app.get(
+  [
+    "/openingHours",
+    "/bistro-menu",
+    "/booking",
+    "/about",
+    "/giftCard",
+    "/matine",
+    "/newsletter",
+    "/premiereFriday",
+    "/ticket-info",
+    "/upcoming",
+    "/WholeProgramPage",
+  ],
+  (req, res) => {
+    res.render(req.url.slice(1));
+  }
+);
 
 app.use((req, res) => {
   res.render("404"); //removed statuscode 404 to make it able to send data to server
