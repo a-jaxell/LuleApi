@@ -45,21 +45,7 @@ app.use(displayRating);
 // /movies/:id/review
 app.use(sendReviewServer);
 
-// TODO fixa repetativa getlisteners
-{
-  app.get("/openingHours", (req, res) => {
-    res.render("openingHours");
-  });
 
-  app.get("/bistro-menu", (req, res) => {
-    res.render("bistro-menu");
-  });
-
-  app.get("/booking", (req, res) => {
-    res.render("booking");
-  });
-
-});
 
 app.get("/api/upcoming-screenings/:id", async (req, res) => {
   const load = await apiAdapter.loadUpcomingScreening(req.params.id);
