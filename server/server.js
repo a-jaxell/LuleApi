@@ -4,13 +4,13 @@ import ApiAdapter from "./ApiAdapter.js";
 import loadMovies from "./loadMovies.js";
 import filterUpcomingScreenings from "./filterUpcomingScreenings.js";
 import apiAdapter from "./apiAdapter.js";
-import loadMovies from "./loadMovies.js";
+import { screeningsRouter } from "./routers/screeningsRouter.js";
 import { loadReviews } from "./loadReviews.js";
 import { sendReviewServer } from "./sendReview.js";
 import { displayRating } from "./rating.js";
 
-
 const apiAdapter = new ApiAdapter();
+
 const app = express();
 
 app.set("layout", "../views/layouts/layout.ejs");
@@ -27,7 +27,7 @@ app.get("/", async (req, res) => {
   res.status(200)
      .render("home", { movies: await loadMovies() });
 });
-
+app.use('/screenings', screeningsRouter);
 app.get("/movies/:id", async (req, res) => {
   const movie = await loadMovies(req.params.id);
 
