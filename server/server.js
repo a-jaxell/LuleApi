@@ -22,7 +22,6 @@ app.use("/static", express.static("./static"));
 app.use("/js", express.static("./static/jsfrontend"));
 app.use("/src", express.static("./src"));
 app.use(express.json());
-app.use(express.urlencoded());
 
 app.get("/", async (req, res) => {
   res.status(200).render("home", { movies: await loadMovies() });
