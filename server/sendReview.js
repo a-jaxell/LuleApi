@@ -10,3 +10,11 @@ sendReviewServer.post("/movies/:id/review", async (req, res) => {
     body: JSON.stringify(req.body),
   });
 });
+
+export default function reviewData(reviewMovie) {
+  return reviewMovie.data.map((elements) => {
+    return {
+      rating: elements.attributes.rating,
+    };
+  });
+}
