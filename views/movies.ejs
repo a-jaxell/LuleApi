@@ -1,16 +1,51 @@
 <div>
-    <li>
-        <h2>Titel: <%= movie.title %> </h2>
-        <p>Intro: <%- movie.intro %></p>
-        <img width="250px" height="500px" src="<%= movie.image.url%>" alt="">
-    </li>
+  <li id="movieID" data-id="<%= movie.id %>">
+    <h2>Titel: <%= movie.title %></h2>
+    <p>Intro: <%- movie.intro %></p>
+    <img width="250px" height="500px" src="<%= movie.image.url%>" alt="" />
+    <h3 class="movie-rating">Filmens Betyg:</h3>
+  </li>
 </div>
-<section class ="reviewsSection">
-    <button type="button" id="buttonPrevious">Föregående </button>
-	<button type="button" id="buttonNext">Se fler</button>
-    <ul id="reviewContainer">
 
-        
+<section class="upcoming">
+    <ul id="coming-screenings">
+
     </ul>
 </section>
-<script src="../static/jsfrontend/getReviews.js"></script>
+
+<form class="review-form">
+  <div class="review-send">
+    <h2>Lämna review:</h2>
+    <div class="person-info">
+      <h4>Förnamn:</h4>
+      <input class="firstName" class="input" type="text" />
+      <h4>Efternamn:</h4>
+      <input class="lastName" class="input" type="text" />
+    </div>
+    <div>
+      <h4>Betyg:</h4>
+      <select class="rating" aria-placeholder="0-5" name="" id="">
+        <option value="0">0</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4 ">4</option>
+        <option value="5 ">5</option>
+      </select>
+    </div>
+
+    <textarea
+      class="comment-field"
+      placeholder="Lämna kommentar här"
+      name=""
+      id=""
+      cols="25"
+      rows="5"
+    ></textarea>
+  </div>
+
+  <button type="submit" class="send-btn">Skicka din review</button>
+</form>
+
+
+<script src="../static/jsfrontend/getUpcomingScreenings.js"></script>
