@@ -4,7 +4,7 @@ const md = new MarkdownIt();
 
 export default async function loadMovies(param) {
   const baseUrl = "https://plankton-app-xhkom.ondigitalocean.app/api/movies/";
-
+  
   //if a parameter is passed it fetches with the parameter, otherwise without
   const res = param ? await fetch(baseUrl + param) : await fetch(baseUrl);
   const data = await res.json();

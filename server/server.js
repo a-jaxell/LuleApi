@@ -4,6 +4,8 @@ import ApiAdapter from "./ApiAdapter.js";
 import loadMovies from "./loadMovies.js";
 import filterUpcomingScreenings from "./filterUpcomingScreenings.js";
 import apiAdapter from "./apiAdapter.js";
+import loadMovies from "./loadMovies.js";
+import { loadReviews } from "./loadReviews.js";
 import { sendReviewServer } from "./sendReview.js";
 import { displayRating } from "./rating.js";
 
@@ -37,6 +39,24 @@ app.get("/movies/:id", async (req, res) => {
     res.status(404).render("thisMovieNotFound");
   }
 
+});
+
+//Get reviews, takes movieId and pageNumber as parameters.
+//calls server function loadReviewsForPageX.
+//Then sends response back to frontend
+app.get("/reviews/:id/", async (req, res) => {
+  const page = req.query.page;
+  const reviews = await loadReviews(req.params.id,page);
+  res.send(reviews)
+});
+
+//Get reviews, takes movieId and pageNumber as parameters.
+//calls server function loadReviewsForPageX.
+//Then sends response back to frontend
+app.get("/reviews/:id/", async (req, res) => {
+  const page = req.query.page;
+  const reviews = await loadReviews(req.params.id,page);
+  res.send(reviews)
 });
 
 //to display rating /movies/:id/rating
