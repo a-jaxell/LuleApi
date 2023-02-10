@@ -29,7 +29,7 @@ export function roundRating(passInData) {
     return roundedRating;
 }
 const API_BASE = "https://plankton-app-xhkom.ondigitalocean.app/api";
-export async function loadReview() {
+export async function loadOMDB() {
     const rev = await fetch(API_BASE + "/movies/" + 1);
     //hårdkodad id för tillfället
     const payload = await rev.json();
@@ -47,7 +47,7 @@ export async function loadReview() {
     console.log(OMDB_DATA.imdbRating);
     return OMDB_DATA.imdbRating;
 }
-loadReview();
+loadOMDB();
 
 displayRating.get("/movies/:id/rating", async(req, res) => {
     const movieID = req.params.id;
