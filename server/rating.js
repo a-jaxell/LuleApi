@@ -3,7 +3,7 @@ import fetch from "node-fetch";
 
 export const displayRating = express.Router();
 
-export async function getRatingData(id) {
+async function getRatingData(id) {
   const response = await fetch(
     "https://plankton-app-xhkom.ondigitalocean.app/api/reviews?filters%5Bmovie%5D=" +
       id
@@ -11,6 +11,22 @@ export async function getRatingData(id) {
   const reviewData = await response.json();
   const data = reviewData.data;
   return data;
+}
+
+export function roundRating(passInData) {
+  //removing value of null if it exist
+  let nullValue = null;
+  let filterData = passInData.filter((item) => item !== nullValue);
+
+  let sum = filterData.reduce(function (a, b) {
+    return a + b;
+  });
+
+  let result = sum / passInData.length;
+
+  let roundedRating = Math.round(result * 10) / 10;
+
+  return roundedRating;
 }
 
 displayRating.get("/movies/:id/rating", async (req, res) => {
@@ -22,17 +38,7 @@ displayRating.get("/movies/:id/rating", async (req, res) => {
     return rating.attributes.rating;
   });
 
-  //removing value of null if it exist
-  let nullValue = null;
-  allRating = allRating.filter((item) => item !== nullValue);
-
-  let sum = allRating.reduce(function (a, b) {
-    return a + b;
-  });
-
-  let result = sum / allRating.length;
-
-  let roundedRating = Math.round(result * 10) / 10;
+  let roundedRating = roundRating(allRating);
 
   if (allRating.length >= 5) {
     res.status(200).send({ body: roundedRating });
