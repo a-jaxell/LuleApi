@@ -817,6 +817,7 @@ main {
     max-width: 1000px;
   }
 }
+
 .screening {
   font-family: "Inter", sans-serif;
   color: #112d4e;
@@ -861,4 +862,100 @@ main {
 .screening-item .movie-title, .screening-item .screening-room, .screening-item .screening-time {
   margin-left: 1rem;
   margin-top: 1rem;
+}
+.author {
+  font-size: 2em;
+  font-weight: 800;
+  margin: 5px;
+}
+
+.reviewComment {
+  font-style: italic;
+  margin: 5px;
+}
+
+.reviewRating {
+  margin: 5px;
+  font-size: 1.5em;
+  font-weight: 800;
+}
+
+.pagination-container {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  bottom: 0;
+  justify-content: center;
+}
+
+.pagination-number,
+.pagination-button {
+  font-size: 1.1rem;
+  background-color: transparent;
+  border: none;
+  margin: 0.25rem 0.25rem;
+  cursor: pointer;
+  height: 2.5rem;
+  width: 2.5rem;
+  border-radius: 0.2rem;
+}
+
+.pagination-number:hover,
+.pagination-button:not(.disabled):hover {
+  background: #fff;
+}
+
+.pagination-number.active {
+  color: #fff;
+  background: #0085b6;
+}
+
+form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+form h2 {
+  margin-top: 2rem;
+}
+form h4 {
+  margin-top: 3rem;
+}
+form input {
+  width: 120px;
+  height: 20px;
+}
+form input[type=text] {
+  padding: 4px;
+}
+form select {
+  margin-bottom: 2rem;
+  width: 4rem;
+  height: 30px;
+}
+form .comment-field {
+  padding: 4px;
+}
+form button {
+  padding: 5px;
+  margin: 1rem 0;
+  border-radius: 3px;
+  border: none;
+  background-color: rgb(83, 79, 79);
+  color: white;
+}
+form button:hover {
+  opacity: 0.9;
+}
+form button:active {
+  transform: scale(1.05);
+}
+@media screen and (min-width: 750px) {
+  form {
+    padding-bottom: 2rem;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    transform: scale(1.2);
+  }
 }

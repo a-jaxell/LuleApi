@@ -1,11 +1,11 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 html {
-    background-image: url("../static/background.png");
+  background-image: url("../static/background.png");
 }
 
 @import "variables.scss";
@@ -23,3 +23,6 @@ html {
 @import "styles/fnb-food.scss";
 @import "styles/premiereFriday.scss";
 @import "styles/screenings-list.scss";
+@import "styles/movie.scss";
+@import "styles/sendReview.scss";
+
