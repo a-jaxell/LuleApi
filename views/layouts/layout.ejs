@@ -1,26 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <%- include('../partials/head'); %>
-</head>
-<body>
+  </head>
+  <body>
+    <header class="header"><%- include('../partials/header'); %></header>
 
-    <header class="header">
-      <%- include('../partials/header'); %>
-    </header>
-
-    <nav class="secNav">
-      <%- include('../partials/secNav'); %>
-    </nav>
+    <nav class="secNav"><%- include('../partials/secNav'); %></nav>
 
     <%-body%>
-   
-    <footer class="footer">
-      <%- include('../partials/footer'); %>
-    </footer>
 
-    
+    <footer class="footer"><%- include('../partials/footer'); %></footer>
+
     <script src="../../static/jsfrontend/secNav.js" type="module"></script>
     <script src="../../static/jsfrontend/hamburgerMenu.js"></script>
-</body>
+    <script src="../../static/jsfrontend/moviePage.js"></script>
+  </body>
 </html>

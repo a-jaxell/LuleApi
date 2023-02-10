@@ -1,0 +1,51 @@
+form {
+  display: flex;
+  justify-content: center;
+
+  align-items: center;
+
+  h2 {
+    margin-top: 2rem;
+  }
+
+  h4 {
+    margin-top: 3rem;
+  }
+  input {
+    width: 120px;
+    height: 20px;
+
+    &[type="text"] {
+      padding: 4px;
+    }
+  }
+  select {
+    margin-bottom: 2rem;
+    width: 4rem;
+    height: 30px;
+  }
+  .comment-field {
+    padding: 4px;
+  }
+  button {
+    padding: 5px;
+    margin: 1rem 0;
+    border-radius: 3px;
+    border: none;
+    background-color: rgb(83, 79, 79);
+    color: white;
+    &:hover {
+      opacity: 0.9;
+    }
+    &:active {
+      transform: scale(1.05);
+    }
+  }
+  @media screen and (min-width: $screen-breakpoint) {
+    padding-bottom: 2rem;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    transform: scale(1.2);
+  }
+}
