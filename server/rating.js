@@ -29,8 +29,8 @@ export function roundRating(passInData) {
     return roundedRating;
 }
 const API_BASE = "https://plankton-app-xhkom.ondigitalocean.app/api";
-export async function loadOMDB() {
-    const rev = await fetch(API_BASE + "/movies/" + 1);
+export async function loadOMDB(id) {
+    const rev = await fetch(API_BASE + "/movies/" + id);
     //hårdkodad id för tillfället
     const payload = await rev.json();
 
@@ -43,16 +43,13 @@ export async function loadOMDB() {
     );
     const OMDB_DATA = await OMDB_API.json();
     //const OMDB_RATING = OMDB_RATING.OMDB_DATA;
-    console.log(OMDB_DATA.Title);
-    console.log(OMDB_DATA.imdbRating);
+    
     return OMDB_DATA.imdbRating;
 }
-loadOMDB();
 
 displayRating.get("/movies/:id/rating", async(req, res) => {
-    const movieID = req.params.id;
 
-    const data = await getRatingData(movieID);
+    const data = await getRatingData(req.params.id);
 
     let allRating = data.map((rating) => {
         return rating.attributes.rating;
@@ -64,6 +61,7 @@ displayRating.get("/movies/:id/rating", async(req, res) => {
         res.status(200).send({ body: roundedRating });
     } else {
         //här ska funktion med imbd api in
-        return;
+      res.status(200).send({ body: await loadOMDB(req.params.id)});
+
     }
 });

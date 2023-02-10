@@ -3,13 +3,13 @@ import expressLayouts from "express-ejs-layouts";
 import ApiAdapter from "./ApiAdapter.js";
 import loadMovies from "./loadMovies.js";
 import filterUpcomingScreenings from "./filterUpcomingScreenings.js";
-import apiAdapter from "./apiAdapter.js";
+
 import { screeningsRouter } from "./routers/screeningsRouter.js";
 import { loadReviews } from "./loadReviews.js";
 import { sendReviewServer } from "./sendReview.js";
 import { displayRating } from "./rating.js";
 
-/* const apiAdapter = new ApiAdapter();*/
+const apiAdapter = new ApiAdapter();
 const app = express();
 
 app.set("layout", "../views/layouts/layout.ejs");
