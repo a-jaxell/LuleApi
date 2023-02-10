@@ -1,5 +1,6 @@
 import app from "./server.js";
+const PORT = 5080;
 
-app.listen(5080, () => {
-  console.log("Check");
+app.listen(PORT, () => {
+  console.log("Listening on port " + PORT);
 });
