@@ -30,7 +30,8 @@ export function roundRating(passInData) {
 }
 const API_BASE = "https://plankton-app-xhkom.ondigitalocean.app/api";
 export async function loadReview() {
-    const rev = await fetch(API_BASE + "/movies/" + 1); //hårdkodad id för tillfället
+    const rev = await fetch(API_BASE + "/movies/" + 1);
+    //hårdkodad id för tillfället
     const payload = await rev.json();
 
     // const IMDB_ID = JSON.stringify(payload).id;
