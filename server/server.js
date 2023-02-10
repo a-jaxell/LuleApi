@@ -1,6 +1,6 @@
 import express from "express";
 import expressLayouts from "express-ejs-layouts";
-import apiAdapter from "./apiAdapter.js";
+import loadMovies from "./loadMovies.js";
 import { loadReviews } from "./loadReviews.js";
 
 const app = express();
@@ -15,11 +15,11 @@ app.use("/src", express.static("./src"));
 
 app.get("/", async (req, res) => {
   res.status(200)
-     .render("home", { movies: await apiAdapter() });
+     .render("home", { movies: await loadMovies() });
 });
 
 app.get("/movies/:id", async (req, res) => {
-  const movie = await apiAdapter(req.params.id);
+  const movie = await loadMovies(req.params.id);
   if (movie != undefined) {
     res.status(200)
        .render("movies", {movie});
