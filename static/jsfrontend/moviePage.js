@@ -39,6 +39,10 @@ async function sendForm() {
         },
       }),
     });
+    alert("Din review har genomförst");
+    firstName.value = "";
+    lastName.value = "";
+    commentField.value = "";
   }
 }
 async function getMovieRating() {
@@ -66,27 +70,21 @@ async function jwt() {
 
   const data = { capital: capitalCityStockholm };
 
-  const resToken = await fetch(
-    `http://localhost:5080/movies/${movieId}/sendReview`,
-    {
-      method: "POST",
+  const resToken = await fetch(`/movies/${movieId}/sendReview`, {
+    method: "POST",
 
-      headers: {
-        Authorization: "Basic " + b64,
-        "Content-Type": "application/json",
-      },
+    headers: {
+      Authorization: "Basic " + b64,
+      "Content-Type": "application/json",
+    },
 
-      body: JSON.stringify({
-        data,
-      }),
-    }
-  );
+    body: JSON.stringify({
+      data,
+    }),
+  });
   const dataToken = await resToken.json();
-  console.log(dataToken);
 
-  const res = await fetch(`http://localhost:5080/movies/${movieId}/protected`, {
+  await fetch(`/movies/${movieId}/protected`, {
     headers: { Authorization: "Bearer " + dataToken.token },
   });
-  const payload = await res.json();
-  console.log(payload);
 }
