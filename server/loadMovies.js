@@ -2,7 +2,7 @@ import fetch from "node-fetch";
 import MarkdownIt from "markdown-it";
 const md = new MarkdownIt();
 
-export default async function apiAdapter(param) {
+export default async function loadMovies(param) {
   const baseUrl = "https://plankton-app-xhkom.ondigitalocean.app/api/movies/";
 
   //if a parameter is passed it fetches with the parameter, otherwise without
