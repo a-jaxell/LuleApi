@@ -1,7 +1,14 @@
 import express from "express";
 import expressLayouts from "express-ejs-layouts";
+import ApiAdapter from "./ApiAdapter.js";
+import loadMovies from "./loadMovies.js";
+import filterUpcomingScreenings from "./filterUpcomingScreenings.js";
 import apiAdapter from "./apiAdapter.js";
+import { sendReviewServer } from "./sendReview.js";
+import { displayRating } from "./rating.js";
 
+
+const apiAdapter = new ApiAdapter();
 const app = express();
 
 app.set("layout", "../views/layouts/layout.ejs");
@@ -11,23 +18,32 @@ app.use(expressLayouts);
 app.use("/static", express.static("./static"));
 app.use("/js", express.static("./static/jsfrontend"));
 app.use("/src", express.static("./src"));
+app.use(express.json());
+app.use(express.urlencoded());
 
 app.get("/", async (req, res) => {
   res.status(200)
-     .render("home", { movies: await apiAdapter() });
+     .render("home", { movies: await loadMovies() });
 });
 
 app.get("/movies/:id", async (req, res) => {
-  const movie = await apiAdapter(req.params.id);
+  const movie = await loadMovies(req.params.id);
 
   if (movie != undefined) {
+
     res.status(200)
-       .render("movies", { movie: await apiAdapter(req.params.id) });
+       .render("movies", { movie: await loadMovies(req.params.id) });
   } else {
-    res.status(404)
-       .render("thisMovieNotFound");
+    res.status(404).render("thisMovieNotFound");
   }
+
 });
+
+//to display rating /movies/:id/rating
+app.use(displayRating);
+
+// /movies/:id/review
+app.use(sendReviewServer);
 
 // TODO fixa repetativa getlisteners
 {
@@ -43,41 +59,37 @@ app.get("/movies/:id", async (req, res) => {
     res.render("booking");
   });
 
-  app.get("/about", (req, res) => {
-    res.render("about");
-  });
+});
 
-  app.get("/giftCard", (req, res) => {
-    res.render("giftCard");
-  });
+app.get("/api/upcoming-screenings/:id", async (req, res) => {
+  const load = await apiAdapter.loadUpcomingScreening(req.params.id);
+  const filteredData = filterUpcomingScreenings(load);
+  
+  filteredData.length != 0 ?
+  res.send(filteredData) :
+  res.send("Inga kommande visningar")
+})
 
-  app.get("/matine", (req, res) => {
-    res.render("matine");
-  });
+app.get([
+"/openingHours",
+"/bistro-menu",
+"/booking",
+"/about",
+"/giftCard",
+"/matine",
+"/newsletter",
+"/premiereFriday",
+"/ticket-info",
+"/upcoming",
+"/WholeProgramPage"],
+ (req, res) => {
+  res.render(req.url.slice(1));
+});
 
-  app.get("/newsletter", (req, res) => {
-    res.render("newsLetter");
-  });
 
-  app.get("/premiereFriday", (req, res) => {
-    res.render("premiereFriday");
-  });
-
-  app.get("/ticket-info", (req, res) => {
-    res.render("ticket-info");
-  });
-  app.get("/upcoming", (req, res) => {
-    res.render("upcoming");
-  });
-
-  app.get("/WholeProgramPage", (req, res) => {
-    res.render("WholeProgramPage");
-  });
-}
 
 app.use((req, res) => {
-  res.status(404)
-     .render("404");
+  res.render("404"); //removed statuscode 404 to make it able to send data to server
 });
 
 export default app;
