@@ -49,15 +49,6 @@ app.get("/reviews/:id/", async (req, res) => {
   res.send(reviews)
 });
 
-//Get reviews, takes movieId and pageNumber as parameters.
-//calls server function loadReviewsForPageX.
-//Then sends response back to frontend
-app.get("/reviews/:id/", async (req, res) => {
-  const page = req.query.page;
-  const reviews = await loadReviews(req.params.id,page);
-  res.send(reviews)
-});
-
 //to display rating /movies/:id/rating
 app.use(displayRating);
 
