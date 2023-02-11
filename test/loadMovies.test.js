@@ -1,5 +1,7 @@
 import request from "supertest";
 import app from "../server/server.js";
+import { loadReviews } from "../server/loadReviews.js";
+
 
 test("testing singlemovie render page", async () => {
     const response = await request(app)
@@ -9,4 +11,3 @@ test("testing singlemovie render page", async () => {
 
     expect(response.text.includes({id: 4, title: "Min granne Totoro", imdbId: "tt2953050"}))
 });
-
