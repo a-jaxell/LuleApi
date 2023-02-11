@@ -34,8 +34,6 @@ async function jwtSendReview() {
 
   const data = { capital: capitalCityStockholm };
 
-  const commentData = { comment: commentField };
-
   //sends capital text from user
   const resToken = await fetch(`/movies/${movieId}/sendReview`, {
     method: "POST",
@@ -47,7 +45,6 @@ async function jwtSendReview() {
 
     body: JSON.stringify({
       data,
-      commentData,
     }),
   });
 

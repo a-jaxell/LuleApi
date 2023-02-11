@@ -10,7 +10,6 @@ const secretTokken = "sendReviewSignature";
 jwtSend.post("/movies/:id/sendReview", (req, res) => {
   const header = req.headers.authorization;
   const capital = req.body.data.capital;
-  const comment = req.body.commentData.comment;
 
   const headerString = header.slice(6);
   const credentials = atob(headerString);
@@ -19,7 +18,7 @@ jwtSend.post("/movies/:id/sendReview", (req, res) => {
 
   if (
     capital.toLocaleLowerCase() === "stockholm" &&
-    (firstName, lastName, comment) != ""
+    (firstName, lastName) != ""
   ) {
     const jwtToken = jsonwebtoken.sign(
       {
