@@ -64,6 +64,7 @@ app.use(sendReviewServer);
 
 app.get("/api/upcoming-screenings/:id", async(req, res) => {
     const load = await apiAdapter.loadUpcomingScreening(req.params.id);
+
     const filteredData = filterUpcomingScreenings(load);
 
     filteredData.length != 0 ?
