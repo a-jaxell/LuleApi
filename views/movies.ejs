@@ -1,13 +1,23 @@
-<div>
+<section class="moreAboutMovie">
   <li id="movieID" data-id="<%= movie.id %>">
-    <h2>Titel: <%= movie.title %></h2>
-    <p>Intro: <%- movie.intro %></p>
-    <img width="250px" height="500px" src="<%= movie.image.url%>" alt="" />
-    <h3 class="movie-rating">Filmens Betyg:</h3>
+    
+    <img src="<%= movie.image.url%>" alt="" />
+    
+    <section class="movieInfo">
+      <h2>Titel: <%= movie.title %></h2>
+      <p>Intro: <%- movie.intro %></p>
+      <h3 class="movie-rating">Filmens Betyg:</h3>
+    </section>
+
   </li>
-</div>
+</section>
+
+
+
+
 
 <section class="upcoming">
+    <h2>Kommande visnin</h2>
     <ul id="coming-screenings">
 
     </ul>
