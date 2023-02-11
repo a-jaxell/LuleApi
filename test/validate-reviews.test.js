@@ -22,16 +22,15 @@ describe("Test review validation", () => {
 
 	test("comment should be at least three characters", async () => {
         
-		const result = router.post("/test",(req,res) =>{
+		const result = validateReviews((req,res) =>{
             const review = {
                 author: kalle,
                 rating: 3,
                 comment: "medelmåttigt"
             }
             
-            
         })
-		expect(result1.reviews.data[0].id).not.toStrictEqual(result2.reviews.data[0].id);
+		expect(result.reviews.data[0].id).not.toStrictEqual(result2.reviews.data[0].id);
 	});
 
     test("rating should be integer between 0 and 5", async () => {
@@ -58,6 +57,8 @@ describe("Test review validation", () => {
             
         })
     
-		expect();
+		expect(result.reviews.data[0].author.length>3);
+        expect(result.reviews.data[0].rating <5 && result.reviews.data[0].rating>0)
+        expect(result.reviews.data[0].comment.length > 3)
 	});
 });
