@@ -6,7 +6,7 @@ buttonPrev.addEventListener("click", getPreviousPage);
 //Get the current URL to get the movie ID and split into segments at each /
 const segments = new URL(document.URL).pathname.split('/');
 // Handle potential trailing slash
-const movieID = segments.pop() || segments.pop(); 
+const movieIdentifier = segments.pop() || segments.pop(); 
 //Get the conainer where to put the resulting HTML code
 const container = document.querySelector("#reviewContainer");
 const params = new URLSearchParams(window.location.search);
@@ -25,7 +25,7 @@ async function getReviews(wantedPage) {
         currentPage=wantedPage;
     }
     //Get the reviews for movie with ID=movieID and page=currentPage
-    const res = await fetch("/reviews/" + movieID+"?page="+currentPage);
+    const res = await fetch("/reviews/" + movieIdentifier+"?page="+currentPage);
     //Get JSON data
     const reviews = await res.json();
     //Get pageCount
