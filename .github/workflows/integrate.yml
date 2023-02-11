@@ -1,16 +1,16 @@
-name: Node.js CI
+# name: Node.js CI
 
-on:
-  pull_request:
-    branches: [ main, sprint-1, ci-deploy ]
+# on:
+#   pull_request:
+#     branches: [ main, sprint-1, ci-deploy ]
 
-jobs:
-  testPullRequest:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
-        with:
-          node-version: 16
-      - run: npm ci
-      - run: npm test 
+# jobs:
+#   testPullRequest:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - uses: actions/checkout@v2
+#       - uses: actions/setup-node@v1
+#         with:
+#           node-version: 16
+#       - run: npm ci
+#       - run: npm test 

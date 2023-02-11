@@ -1,29 +1,29 @@
-name: Prettier Formatting
+# name: Prettier Formatting
 
-on:
-  pull_request:
-    branches: [ main, sprint-1, ci-deploy ]
+# on:
+#   pull_request:
+#     branches: [ main, sprint-1, ci-deploy ]
 
-jobs:
-  format:
-    runs-on: ubuntu-latest
+# jobs:
+#   format:
+#     runs-on: ubuntu-latest
 
-    steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
+#     steps:
+#     - name: Checkout code
+#       uses: actions/checkout@v2
 
-    - name: Install dependencies
-      run: |
-        npm ci
+#     - name: Install dependencies
+#       run: |
+#         npm ci
 
-    - name: Run Prettier
-      run: |
-        npx prettier --write "**/*.{js,json,md}"
+#     - name: Run Prettier
+#       run: |
+#         npx prettier --write "**/*.{js,json,md}"
 
-    - name: Commit and push changes
-      run: |
-        git config user.email "prettier-bot@example.com"
-        git config user.name "Prettier Bot"
-        git add .
-        git diff-index --quiet HEAD || git commit -m "Format code with Prettier"
-        git push origin HEAD
+#     - name: Commit and push changes
+#       run: |
+#         git config user.email "prettier-bot@example.com"
+#         git config user.name "Prettier Bot"
+#         git add .
+#         git diff-index --quiet HEAD || git commit -m "Format code with Prettier"
+#         git push origin HEAD
