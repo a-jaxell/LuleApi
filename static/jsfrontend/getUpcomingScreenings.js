@@ -1,5 +1,5 @@
 const movieID = document.querySelector("#movieID");
-const container = document.querySelector("#coming-screenings");
+const screeningsContainer = document.querySelector("#coming-screenings");
 
 
 export default async function renderScreenings() {
@@ -16,7 +16,7 @@ export default async function renderScreenings() {
         time.innerText = screening.date.substring(11, 16);
         
         li.append(date, time);
-        container.append(li);
+        screeningsContainer.append(li);
         
     });
     
