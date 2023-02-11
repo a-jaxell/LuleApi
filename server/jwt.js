@@ -15,7 +15,10 @@ jwtSend.post("/movies/:id/sendReview", (req, res) => {
 
   const [firstName, lastName] = credentials.split(":");
 
-  if (capital.toLocaleLowerCase() === "stockholm") {
+  if (
+    capital.toLocaleLowerCase() === "stockholm" &&
+    (firstName, lastName) != ""
+  ) {
     const jwtToken = jsonwebtoken.sign(
       {
         firstName: firstName.toLocaleLowerCase(),

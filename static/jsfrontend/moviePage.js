@@ -53,17 +53,21 @@ async function jwtSendReview() {
     headers: { Authorization: "Bearer " + dataToken.token },
   });
 
-  //om den inkluderar JWT token
+  /*  //om den inkluderar JWT token
   if (dataToken.token) {
-    //dessa if-satser används om man skriver i rätt stad men tomma input fält
-    if (firstName === "") {
-      alert("Du har inte fyllt förnamn");
-    } else if (lastName === "") {
-      alert("Du har inte fyllt efternamn");
-    } else if (commentField === "") {
-      alert("Du har inte angivit någon kommentar");
-    }
-
+    //dessa if-satser används om man skriver i rätt stad men tomma input fält */
+  if (firstName === "") {
+    alert("Du har inte fyllt förnamn");
+  } else if (lastName === "") {
+    alert("Du har inte fyllt efternamn");
+  } else if (commentField === "") {
+    alert("Du har inte angivit någon kommentar");
+  } else if (
+    firstName &&
+    lastName &&
+    commentField != "" &&
+    dataToken.token != undefined
+  ) {
     await fetch(`${movieId}/review`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
