@@ -21,8 +21,7 @@ jwtSend.post("/movies/:id/sendReview", (req, res) => {
         firstName: firstName.toLocaleLowerCase(),
         lastName: lastName.toLocaleLowerCase(),
       },
-      secretTokken,
-      { expiresIn: "15min" }
+      secretTokken
     );
 
     res.status(200).json({

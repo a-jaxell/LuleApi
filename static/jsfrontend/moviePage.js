@@ -1,8 +1,3 @@
-/* const firstName = document.querySelector(".firstName");
-const lastName = document.querySelector(".lastName");
-const rating = document.querySelector(".rating");
-const commentField = document.querySelector(".comment-field");
- */
 const sendBtn = document.querySelector(".send-btn");
 
 //get id from url
@@ -18,39 +13,11 @@ if (sendBtn) {
   });
 }
 
-/*  async function sendForm() {
-  if (firstName.value === "") {
-    alert("Du har inte fyllt förnamn");
-  } else if (lastName.value === "") {
-    alert("Du har inte fyllt efternamn");
-  } else if (commentField.value === "") {
-    alert("Du har inte angivit någon kommentar");
-  } else {
-    await fetch(`${movieId}/review`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-
-      body: JSON.stringify({
-        data: {
-          comment: commentField.value,
-          rating: rating.value,
-          author: firstName.value + " " + lastName.value,
-          verified: true,
-          movie: movieId,
-        },
-      }),
-    });
-  }
-}  */
 async function getMovieRating() {
   const response = await fetch(`/movies/${movieId}/rating`);
   const dataJson = await response.json();
   document.querySelector(".movie-rating").append(dataJson.body);
 }
-
-/* document.querySelector(".testBtn").addEventListener("click", function () {
-  event.preventDefault();
-}); */
 
 async function jwtSendReview() {
   //get id from url
@@ -88,6 +55,7 @@ async function jwtSendReview() {
 
   //om den inkluderar JWT token
   if (dataToken.token) {
+    //dessa if-satser används om man skriver i rätt stad men tomma input fält
     if (firstName === "") {
       alert("Du har inte fyllt förnamn");
     } else if (lastName === "") {
@@ -95,8 +63,7 @@ async function jwtSendReview() {
     } else if (commentField === "") {
       alert("Du har inte angivit någon kommentar");
     }
-    console.log(rating);
-    /*   
+
     await fetch(`${movieId}/review`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -110,8 +77,6 @@ async function jwtSendReview() {
           movie: movieId,
         },
       }),
-    }); */
-  } else {
-    alert("hello");
+    });
   }
 }
