@@ -1,7 +1,7 @@
 import app from "../server/server";
 import { describe, expect, test } from "@jest/globals";
 import { Router } from "express";
-import validateReviews from "../server/validateReviews";
+import validateReviews from "../server/validateReviews";                                                            
 
 describe("Test review validation", () => {
 	test("Author should be at least three characters", async () => {
