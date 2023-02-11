@@ -4,14 +4,16 @@ const sendBtn = document.querySelector(".send-btn");
 const idUrl = new URL(document.URL).pathname.split("/");
 const movieId = idUrl.pop() || idUrl.pop();
 
-//If page has a sendBtn
-if (sendBtn) {
-  getMovieRating();
-
-  sendBtn.addEventListener("click", function () {
-    event.preventDefault();
-    jwtSendReview();
-  });
+// var tvungen att wrappa denna i en funktion,
+// annars kom alerten på rad 28 så fort man tröck på en film.
+export function formSubmitListener() {
+  //If page has a sendBtn
+  if (sendBtn) {
+    sendBtn.addEventListener("click", function () {
+      event.preventDefault();
+      jwtSendReview();
+    });
+  }
 }
 
 async function getMovieRating() {
