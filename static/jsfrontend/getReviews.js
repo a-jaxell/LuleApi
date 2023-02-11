@@ -20,7 +20,7 @@ getReviews();
 
 //Call getReviews using fetch
 //Parse the data and put into HTML
-async function getReviews(wantedPage) {
+export async function getReviews(wantedPage) {
     if (wantedPage !== undefined){
         currentPage=wantedPage;
     }
@@ -57,7 +57,7 @@ async function getReviews(wantedPage) {
 }
 
 //Get next page with reviews as long as currentPage is not equal to pageCount
-async function getNextPage() {
+export async function getNextPage() {
 	if (currentPage !== totalPages) {
 		currentPage++;
 	}
@@ -65,7 +65,7 @@ async function getNextPage() {
 }
 
 //Get previousPage as long as currentPage not equal to first page
-async function getPreviousPage() {
+export async function getPreviousPage() {
 	if (currentPage !== 1) {
 		currentPage--;
 	}

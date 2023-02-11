@@ -1,10 +1,9 @@
 const movieID = document.querySelector("#movieID");
 const screeningsContainer = document.querySelector("#coming-screenings");
 
-renderScreenings(movieID.dataset.id);
 
-async function renderScreenings(param) {
-    const res = await fetch("/api/upcoming-screenings/" + param);
+export default async function renderScreenings() {
+    const res = await fetch("/api/upcoming-screenings/" + movieID.dataset.id);
     const screenings = await res.json();
     
     screenings.forEach(screening => {  
