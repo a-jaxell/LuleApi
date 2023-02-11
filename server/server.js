@@ -20,7 +20,7 @@ app.use("/static", express.static("./static"));
 app.use("/js", express.static("./static/jsfrontend"));
 app.use("/src", express.static("./src"));
 app.use(express.json());
-app.use(express.urlencoded());
+app.use(express.urlencoded({extended: true}));
 
 app.get("/", async(req, res) => {
     res.status(200).render("home", { movies: await loadMovies() });
@@ -47,6 +47,7 @@ app.get("/reviews/:id/", async(req, res) => {
     res.send(reviews);
 });
 
+
 //Get reviews, takes movieId and pageNumber as parameters.
 //calls server function loadReviewsForPageX.
 //Then sends response back to frontend
@@ -55,6 +56,7 @@ app.get("/reviews/:id/", async(req, res) => {
     const reviews = await loadReviews(req.params.id, page);
     res.send(reviews);
 });
+
 
 //to display rating /movies/:id/rating
 app.use(displayRating);
