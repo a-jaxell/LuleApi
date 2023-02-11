@@ -16,7 +16,7 @@ export function formSubmitListener() {
   }
 }
 
-async function getMovieRating() {
+export async function getMovieRating() {
   const response = await fetch(`/movies/${movieId}/rating`);
   const dataJson = await response.json();
   document.querySelector(".movie-rating").append(dataJson.body);
