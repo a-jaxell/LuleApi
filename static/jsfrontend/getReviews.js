@@ -51,7 +51,7 @@ async function getReviews(wantedPage) {
         comment.innerText = review.attributes.rating;
         const horizontalLine = document.createElement("hr");
         li.append(author,rating,comment,horizontalLine);
-        reviewsContainer.append(li);
+        reviewsContainer.apped(li);
     });
     
 }
