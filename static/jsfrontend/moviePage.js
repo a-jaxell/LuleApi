@@ -8,16 +8,20 @@ const sendBtn = document.querySelector(".send-btn");
 const idUrl = new URL(document.URL).pathname.split("/");
 const movieId = idUrl.pop() || idUrl.pop();
 
-if (sendBtn) {
-  getMovieRating();
-
-  sendBtn.addEventListener("click", function () {
-    event.preventDefault();
-    sendForm();
-  });
+// var tvungen att wrappa denna i en funktion,
+// annars kom alerten på rad 28 så fort man tröck på en film.
+export function formSubmitListener() {
+  
+  if (sendBtn) {
+  
+    sendBtn.addEventListener("click", function () {
+      event.preventDefault();
+      sendForm();
+    });
+  }
 }
 
-async function sendForm() {
+export async function sendForm() {
   if (firstName.value === "") {
     alert("Du har inte fyllt förnamn");
   } else if (lastName.value === "") {
@@ -41,7 +45,7 @@ async function sendForm() {
     });
   }
 }
-async function getMovieRating() {
+export async function getMovieRating() {
   const response = await fetch(`/movies/${movieId}/rating`);
   const dataJson = await response.json();
   document.querySelector(".movie-rating").append(dataJson.body);
