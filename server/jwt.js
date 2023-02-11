@@ -6,6 +6,7 @@ export const jwtProtected = express.Router();
 
 const secretTokken = "sendReviewSignature";
 
+//post if user input is valid to acces token
 jwtSend.post("/movies/:id/sendReview", (req, res) => {
   const header = req.headers.authorization;
   const capital = req.body.data.capital;
@@ -37,6 +38,7 @@ jwtSend.post("/movies/:id/sendReview", (req, res) => {
   }
 });
 
+//get request if token exist, first and last sends back
 jwtProtected.get("/movies/:id/protected", async (req, res) => {
   const header = req.headers.authorization;
   const token = header.slice(7);

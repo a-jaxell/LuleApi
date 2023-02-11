@@ -4,6 +4,7 @@ const sendBtn = document.querySelector(".send-btn");
 const idUrl = new URL(document.URL).pathname.split("/");
 const movieId = idUrl.pop() || idUrl.pop();
 
+//If page has a sendBtn
 if (sendBtn) {
   getMovieRating();
 
@@ -20,10 +21,6 @@ async function getMovieRating() {
 }
 
 async function jwtSendReview() {
-  //get id from url
-  const idUrl = new URL(document.URL).pathname.split("/");
-  const movieId = idUrl.pop() || idUrl.pop();
-
   const firstName = document.querySelector(".firstName").value;
   const lastName = document.querySelector(".lastName").value;
   const capitalCityStockholm = document.querySelector(".capital-city").value;
@@ -35,6 +32,7 @@ async function jwtSendReview() {
 
   const data = { capital: capitalCityStockholm };
 
+  //sends capital text from user
   const resToken = await fetch(`/movies/${movieId}/sendReview`, {
     method: "POST",
 
@@ -47,15 +45,13 @@ async function jwtSendReview() {
       data,
     }),
   });
+
   const dataToken = await resToken.json();
 
   await fetch(`/movies/${movieId}/protected`, {
     headers: { Authorization: "Bearer " + dataToken.token },
   });
 
-  /*  //om den inkluderar JWT token
-  if (dataToken.token) {
-    //dessa if-satser används om man skriver i rätt stad men tomma input fält */
   if (firstName === "") {
     alert("Du har inte fyllt förnamn");
   } else if (lastName === "") {
@@ -68,6 +64,7 @@ async function jwtSendReview() {
     commentField != "" &&
     dataToken.token != undefined
   ) {
+    //post request to send review
     await fetch(`${movieId}/review`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
