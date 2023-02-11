@@ -1,4 +1,4 @@
-name: Node.js CI
+name: run tests
 
 on:
   push:
@@ -7,7 +7,7 @@ on:
     branches: [ main, sprint-1, ci-deploy ]
 
 jobs:
-  testPullRequest:
+  test:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
