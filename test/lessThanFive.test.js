@@ -1,6 +1,5 @@
 import { describe, expect, test, jest } from "@jest/globals";
-/* import { loadOMDB as omdbTest } from "../server/rating.js";
- */
+
 const movie = {
     id: 123,
     title: "The Matrix",
@@ -23,7 +22,7 @@ test("calculates average rating from reviews if there are 5 or more", async() =>
 
 test("retrieves OMDB rating if there are fewer than 5 reviews", async() => {
     movie.reviews.pop();
-    const average = calculateAverageRating(movie);
+    const average = await calculateAverageRating(movie);
     expect(average).toBe(4.5);
     expect(omdbTest).toHaveBeenCalledWith(movie.id);
 });
