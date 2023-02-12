@@ -1,9 +1,9 @@
-  
-export default function validateReviews(){
+import { body,validationResult } from "express-validator";
+export default function validateReviews(req,res){
+  //const body = req.body
   body('author').isLength({min: 3}),
-  body('comment').iLength({min: 3}),
-  body('rating').isInt({min:0, max:5
-  }),
+  body('comment').isLength({min: 3}),
+  body('rating').isInt({min:0, max:5}),
   async (req,res) => {
     //Are there any validation errors
     const errors = validationResult(req);
@@ -15,7 +15,7 @@ export default function validateReviews(){
         errors: errors.array()
       });
     }
-    //If no errors send 200 success
+    //If no errors send 200 success 
     res.status(200).json({
       success: true,
       message: 'Review posted successfully'
