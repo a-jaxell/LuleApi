@@ -4,11 +4,11 @@
 
 ## /openingHours
 
-**returns openinghours about our cienma**
+**returns page openinghours about our cienma**
 
 ## /bistro-menu
 
-**returns our returant menu**
+**returns page of our returant menu**
 
 ## /booking
 
@@ -17,11 +17,11 @@
 
 ## /about
 
-**returns some information about our cinema**
+**returns page about our cinema**
 
 ## /giftcard
 
-**returns information about getting a giftcard**
+**returns page of information about getting a giftcard**
 
 ## /newsletter
 
@@ -29,11 +29,11 @@
 
 ## /ticket-info
 
-**returns ticket info**
+**returns page with ticket info**
 
 ## /wholeProgramPage
 
-**returns all our movies**
+**returns page with all our movies**
 
 ## /upcoming
 
@@ -49,7 +49,7 @@
 
 ## /screenings
 
-**returns the next upcoming time to watch movie**
+**return a list of max 10 screenings for the coming 5 days.**
 
 ## /movies/{id}/rating
 
@@ -73,6 +73,6 @@
 
 **post review**
 
-## /movies/:id/sendReview
+## /movies/{id}/sendReview
 
 **post JWT Token**
