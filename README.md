@@ -51,25 +51,25 @@
 
 **returns the next upcoming time to watch movie**
 
-## / /movies/{id}/rating
+## /movies/{id}/rating
 
 **returns rating data to movie that includes that id**
 
-## /movies/:id/protected
+## /movies/{id}/protected
 
 **returns protected data if JWT token is provided**
 
-## /reviews/:id
+## /reviews/{id}
 
 **returns reviews related to specific id**
 
-## /api/upcoming-screenings/:id
+## /api/upcoming-screenings/{id}
 
 **returns screenings that have been filtered**
 
 # Post
 
-## /sendReview
+## /{id}/review
 
 **post review**
 
