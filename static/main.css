@@ -817,7 +817,6 @@ main {
     max-width: 1000px;
   }
 }
-
 .screening {
   font-family: "Inter", sans-serif;
   color: #112d4e;
@@ -863,6 +862,7 @@ main {
   margin-left: 1rem;
   margin-top: 1rem;
 }
+
 .author {
   font-size: 2em;
   font-weight: 800;
@@ -928,6 +928,9 @@ form input {
 form input[type=text] {
   padding: 4px;
 }
+form h3 {
+  margin-top: 2rem;
+}
 form select {
   margin-bottom: 2rem;
   width: 4rem;
@@ -935,19 +938,26 @@ form select {
 }
 form .comment-field {
   padding: 4px;
+  width: 100px;
 }
-form button {
+form .capital {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: 10px;
+}
+form .capital button {
   padding: 5px;
-  margin: 1rem 0;
+  margin: 3rem 0;
   border-radius: 3px;
   border: none;
   background-color: rgb(83, 79, 79);
   color: white;
 }
-form button:hover {
+form .capital button:hover {
   opacity: 0.9;
 }
-form button:active {
+form .capital button:active {
   transform: scale(1.05);
 }
 @media screen and (min-width: 750px) {
@@ -955,7 +965,12 @@ form button:active {
     padding-bottom: 2rem;
     display: flex;
     justify-content: center;
+    align-items: center;
     flex-direction: column;
     transform: scale(1.2);
+    margin-top: 50px;
+  }
+  form .comment-field {
+    width: 400px;
   }
 }
