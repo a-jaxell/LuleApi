@@ -1,7 +1,6 @@
 form {
   display: flex;
   justify-content: center;
-
   align-items: center;
 
   h2 {
@@ -19,6 +18,9 @@ form {
       padding: 4px;
     }
   }
+  h3 {
+    margin-top: 2rem;
+  }
   select {
     margin-bottom: 2rem;
     width: 4rem;
@@ -26,26 +28,41 @@ form {
   }
   .comment-field {
     padding: 4px;
+    width: 100px;
   }
-  button {
-    padding: 5px;
-    margin: 1rem 0;
-    border-radius: 3px;
-    border: none;
-    background-color: rgb(83, 79, 79);
-    color: white;
-    &:hover {
-      opacity: 0.9;
-    }
-    &:active {
-      transform: scale(1.05);
+  .capital {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 10px;
+
+    button {
+      padding: 5px;
+      margin: 3rem 0;
+      border-radius: 3px;
+      border: none;
+      background-color: rgb(83, 79, 79);
+      color: white;
+      &:hover {
+        opacity: 0.9;
+      }
+      &:active {
+        transform: scale(1.05);
+      }
     }
   }
+
   @media screen and (min-width: $screen-breakpoint) {
     padding-bottom: 2rem;
     display: flex;
     justify-content: center;
+    align-items: center;
     flex-direction: column;
     transform: scale(1.2);
+    margin-top: 50px;
+
+    .comment-field {
+      width: 400px;
+    }
   }
 }

@@ -1,0 +1,20 @@
+name: run tests
+
+on:
+  push:
+    branches: [main, sprint-1, ci-deploy ]
+  pull_request:
+    branches: [ main, sprint-1, ci-deploy ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 16
+          cache: 'npm'
+      - run: npm ci
+      - run: npm run build --if-present
+      - run: npm test
