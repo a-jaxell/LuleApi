@@ -10,7 +10,7 @@
 
 ## /reviews/:id/
 
-#### GET  :
+#### GET  : returns reviews related to specific id
 
 ## /movies/:id/rating
 
