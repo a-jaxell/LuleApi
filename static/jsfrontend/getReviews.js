@@ -46,10 +46,11 @@ export async function getReviews(wantedPage) {
         const rating = document.createElement("p")
         rating.classList.add("reviewRating");
         rating.innerText = review.attributes.rating;
+        const ratingBar = renderStarRating(review.attributes.rating);
         const comment = document.createElement("p")
         comment.classList.add("reviewComment");
         comment.innerText = `"${review.attributes.comment}"`;
-        li.append(author,rating,comment);
+        li.append(author,ratingBar,rating,comment);
         reviewsContainer.append(li);
     });
     
@@ -69,4 +70,21 @@ export async function getPreviousPage() {
 		currentPage--;
 	}
 	await getReviews(currentPage);
+}
+
+function renderStarRating(rating) {
+    const ctr = document.createElement('div');
+    const maxRating = 5;
+    if (rating <= maxRating) {
+        for (let i = 0; i < maxRating; i++) {
+            const star = document.createElement('div');  
+            if(rating > i) {
+                star.classList.add('fa', 'fa-star', 'checked');
+            } else {
+                star.classList.add('fa', 'fa-star');
+            }
+            ctr.appendChild(star);
+        }
+    }
+    return ctr;
 }
