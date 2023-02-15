@@ -817,7 +817,6 @@ main {
     max-width: 1000px;
   }
 }
-
 .screening {
   font-family: "Inter", sans-serif;
   color: #112d4e;
@@ -863,6 +862,36 @@ main {
   margin-left: 1rem;
   margin-top: 1rem;
 }
+
+.reviewsSection {
+  margin: 1em;
+  padding: 1em;
+  border: 0.1em solid rgb(156, 156, 156);
+  box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.1);
+  border-radius: 0.8em;
+  background-color: rgba(144, 144, 144, 0.2);
+}
+#reviewContainer {
+  list-style: none;
+  margin: 1em;
+  border: 0.1em solid black;
+  border-radius: 0.8em;
+  background-color: rgba(223, 223, 223, 0.757);
+}
+#reviewContainer li {
+  margin: 0.8em;
+}
+#reviewContainer li .reviewComment:after {
+  content: "";
+  display: block;
+  position: relative;
+  width: 90%;
+  border: 1px solid #898989;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 1.5em;
+}
+
 .author {
   font-size: 2em;
   font-weight: 800;
@@ -910,33 +939,13 @@ main {
   background: #0085b6;
 }
 
-form {
+.review-form {
+  margin-left: 1em;
+  margin-right: 1em;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  flex-wrap: wrap;
 }
-form h2 {
-  margin-top: 2rem;
-}
-form h4 {
-  margin-top: 3rem;
-}
-form input {
-  width: 120px;
-  height: 20px;
-}
-form input[type=text] {
-  padding: 4px;
-}
-form select {
-  margin-bottom: 2rem;
-  width: 4rem;
-  height: 30px;
-}
-form .comment-field {
-  padding: 4px;
-}
-form button {
+.review-form .send-btn {
   padding: 5px;
   margin: 1rem 0;
   border-radius: 3px;
@@ -944,18 +953,146 @@ form button {
   background-color: rgb(83, 79, 79);
   color: white;
 }
-form button:hover {
+.review-form .send-btn:hover {
   opacity: 0.9;
 }
-form button:active {
+.review-form .send-btn:active {
   transform: scale(1.05);
 }
-@media screen and (min-width: 750px) {
-  form {
+.review-form .review-send {
+  min-width: 90%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: left h2;
+  align-items-margin-top: 2rem;
+  /* @media screen and (min-width: $screen-breakpoint) {
     padding-bottom: 2rem;
     display: flex;
     justify-content: center;
     flex-direction: column;
     transform: scale(1.2);
+  } */
+}
+.review-form .review-send .rating-div {
+  margin-top: 1em;
+  font-size: 1.5em;
+}
+.review-form .review-send .rating-div .rating {
+  font-size: 1.3em;
+  width: 2em;
+  height: 2em;
+  margin-bottom: 2rem;
+}
+.review-form .review-send .comment-field {
+  max-width: 90%;
+  font-size: 2em;
+  resize: none;
+}
+.review-form .review-send .person-info {
+  width: 100%;
+}
+.review-form .review-send .person-info h4 {
+  font-size: 1.5em;
+  margin-top: 1.5rem;
+}
+.review-form .review-send .person-info input {
+  min-width: 70%;
+  max-width: 90%;
+  font-size: 2em;
+}
+
+.moreAboutMovie {
+  font-size: 1rem;
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 90%;
+  text-align: center;
+}
+.moreAboutMovie #movieID {
+  display: flex;
+  list-style: none;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+  min-width: 0em;
+}
+.moreAboutMovie #movieID .movieInfo h2 {
+  font-size: 3em;
+  margin-bottom: 0.2em;
+}
+.moreAboutMovie #movieID .movieInfo p {
+  font-size: 1.5em;
+  margin-bottom: 0.4em;
+}
+.moreAboutMovie #movieID .movieInfo h3 {
+  font-size: 1.8em;
+  margin-bottom: 0.5em;
+}
+.moreAboutMovie #movieID .upcoming {
+  border: 0.1em solid black;
+  box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.1);
+  border-radius: 0.8em;
+  padding: 2em;
+  margin-bottom: 1em;
+}
+.moreAboutMovie #movieID .upcoming h2 {
+  font-size: 2em;
+  margin-top: 2%;
+  margin-bottom: 2%;
+}
+.moreAboutMovie #movieID .upcoming ul {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  align-items: center;
+}
+.moreAboutMovie #movieID .upcoming ul li {
+  display: flex;
+  gap: 2em;
+}
+.moreAboutMovie #movieID .upcoming ul li P {
+  color: rgb(67, 67, 67);
+  font-size: 1.5em;
+  font-weight: 700;
+}
+.moreAboutMovie #movieID img {
+  box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.3);
+  margin-top: 5%;
+  margin-bottom: 5%;
+  border-radius: 1em;
+  min-width: 0em;
+  max-width: 35em;
+  height: auto;
+  object-fit: contain;
+}
+
+/* .reviewsSection {
+    //display: flex;
+    #reviewContainer {
+        list-style: none;
+        margin-left: 1em;
+        margin-right: 1em;
+        border: 0.1em solid black;
+        box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, .1);
+        border-radius: 0.8em;
+
+        li {
+            p{
+                margin-left: 1em;
+            }
+            .reviewComment {
+                margin-left: 2em;
+            }
+        }
+    }
+
+
+} */
+@media (min-width: 750px) {
+  .moreAboutMovie #movieID {
+    flex-wrap: nowrap;
   }
 }

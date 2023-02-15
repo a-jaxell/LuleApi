@@ -45,12 +45,11 @@ export async function getReviews(wantedPage) {
         author.innerText = review.attributes.author;
         const rating = document.createElement("p")
         rating.classList.add("reviewRating");
-        rating.innerText = review.attributes.comment;
+        rating.innerText = review.attributes.rating;
         const comment = document.createElement("p")
         comment.classList.add("reviewComment");
-        comment.innerText = review.attributes.rating;
-        const horizontalLine = document.createElement("hr");
-        li.append(author,rating,comment,horizontalLine);
+        comment.innerText = `"${review.attributes.comment}"`;
+        li.append(author,rating,comment);
         reviewsContainer.append(li);
     });
     
