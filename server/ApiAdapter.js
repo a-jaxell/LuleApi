@@ -11,4 +11,9 @@ export default class ApiAdapter {
         const data = await res.json();
         return data;
     }
-}
+    async loadMetaData(endpoint = '') {
+        const res = await fetch(this.baseUrl + endpoint);
+        const data = await res.json();
+        return data.meta;
+    }
+}   

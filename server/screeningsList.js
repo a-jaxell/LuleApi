@@ -1,19 +1,37 @@
 import fetch from 'node-fetch';
+import ApiAdapter from './ApiAdapter.js';
+
+const api = new ApiAdapter();
+const screeningsEndpoint = '/screenings'
+
+const getTotal = async () => {
+const metadata = await api.loadMetaData(screeningsEndpoint);
+    return metadata.pagination.total;
+}
 
 export const getScreeningsWithMovies = {
     loadData : async () => {
+
         const res = await fetch("https://plankton-app-xhkom.ondigitalocean.app/api/screenings?populate=movie");
         const data = await res.json();
 
         return data;
+        
+    },
+    loadAllData : async (total) => {
+            const res = await fetch(`https://plankton-app-xhkom.ondigitalocean.app/api/screenings?populate=movie&pagination[pageSize]=${total}`);
+            const data = await res.json();
+
+            return data;
+        
     }
 }
 // Formatting and filtering JSON to send only relevant data for rendering. 
 export const getScreeningsList = async (apiHandler) => {
-        
-    const data = await apiHandler.loadData();
+   
+    const data = await apiHandler.loadAllData(await getTotal());
     
-    const res = data.data
+    const res = data.data   
     
     .map( array => ({
         id: array.id, 
