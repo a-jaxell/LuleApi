@@ -59,10 +59,10 @@ export async function getReviews(wantedPage) {
 
 //Get next page with reviews as long as currentPage is not equal to pageCount
 export async function getNextPage() {
-  if (currentPage !== totalPages) {
-    currentPage++;
-  }
-  await getReviews(currentPage);
+	if (currentPage !== totalPages) {
+		currentPage++;
+	}
+	await getReviews(currentPage);
 }
 
 //Get previousPage as long as currentPage not equal to first page
