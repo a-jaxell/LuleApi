@@ -63,18 +63,13 @@
       
     }
 
+  }
 
+  @media screen and (min-width: $screen-breakpoint) {
     
-    
-  
-    
-    /* @media screen and (min-width: $screen-breakpoint) {
-      padding-bottom: 2rem;
-      display: flex;
-      justify-content: center;
-      flex-direction: column;
-      transform: scale(1.2);
-    } */
+    .send-btn {
+      max-height: 3em;
+    }
     
   }
     

@@ -1,5 +1,5 @@
 <section class="moreAboutMovie">
-  <li id="movieID" data-id="<%= movie.id %>">
+  <section id="movieID" data-id="<%= movie.id %>">
     
     <img src="<%= movie.image.url%>" alt="" />
     
@@ -14,7 +14,7 @@
         <ul id="coming-screenings"></ul>
     </section>
 
-  </li>
+  </section>
 </section>
 
 
@@ -22,9 +22,11 @@
 
 
 <section class ="reviewsSection">
-  <ul id="reviewContainer"></ul>
-  <button type="button" id="buttonPrevious">Föregående </button>
-  <button type="button" id="buttonNext">Se fler</button>
+  <section class="reviewDisplay">
+    <ul id="reviewContainer"></ul>
+    <button type="button" id="buttonPrevious">Föregående </button>
+    <button type="button" id="buttonNext">Se fler</button>
+  </section>
 
   <form class="review-form">
     <div class="review-send">

@@ -90,21 +90,3 @@ function renderStarRating(rating) {
   return ctr;
 }
 
-
-// innan
-/* function renderStarRating(rating) {
-    const ctr = document.createElement('div');
-    const maxRating = 5;
-    if (rating <= maxRating) {
-        for (let i = 0; i < maxRating; i++) {
-            const star = document.createElement('div');  
-            if(rating > i) {
-                star.classList.add('fa', 'fa-star', 'checked');
-            } else {
-                star.classList.add('fa', 'fa-star');
-            }
-            ctr.appendChild(star);
-        }
-    }
-    return ctr;
-} */
