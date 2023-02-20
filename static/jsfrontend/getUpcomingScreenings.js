@@ -2,7 +2,7 @@ const movieID = document.querySelector("#movieID");
 const screeningsContainer = document.querySelector("#coming-screenings");
 
 
-export default async function renderScreenings() {
+export default async function getUpcomingScreenings() {
     const res = await fetch("/api/upcoming-screenings/" + movieID.dataset.id);
     const screenings = await res.json();
     

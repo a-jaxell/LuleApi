@@ -1,68 +1,76 @@
-form {
+.review-form   {
+  margin-left: 1em;
+  margin-right: 1em;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  flex-wrap: wrap;
 
-  h2 {
-    margin-top: 2rem;
-  }
-
-  h4 {
-    margin-top: 3rem;
-  }
-  input {
-    width: 120px;
-    height: 20px;
-
-    &[type="text"] {
-      padding: 4px;
+  .send-btn {
+    padding: 5px;
+    margin: 1rem 0;
+    border-radius: 3px;
+    border: none;
+    background-color: rgb(83, 79, 79);
+    color: white;
+    &:hover {
+      opacity: 0.9;
+    }
+    &:active {
+      transform: scale(1.05);
     }
   }
-  h3 {
-    margin-top: 2rem;
-  }
-  select {
-    margin-bottom: 2rem;
-    width: 4rem;
-    height: 30px;
-  }
-  .comment-field {
-    padding: 4px;
-    width: 100px;
-  }
-  .capital {
+
+  .review-send {
+    min-width: 90%;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    margin-left: 10px;
+    justify-content: center;
+    align-items: left
 
-    button {
-      padding: 5px;
-      margin: 3rem 0;
-      border-radius: 3px;
-      border: none;
-      background-color: rgb(83, 79, 79);
-      color: white;
-      &:hover {
-        opacity: 0.9;
-      }
-      &:active {
-        transform: scale(1.05);
+    h2 {
+      margin-top: 2rem;
+    }
+
+    .rating-div {
+      margin-top: 1em;
+      font-size: 1.5em;
+      
+      .rating {
+        font-size: 1.3em;
+        width: 2em;
+        height: 2em;
+        margin-bottom: 2rem;
       }
     }
+
+    .comment-field {
+      max-width: 90%;
+      font-size: 2em;
+      resize: none;
+    }
+    
+    .person-info {
+      width: 100%;
+      
+      h4 {
+        font-size: 1.5em;
+        margin-top: 1.5rem;
+      }
+      input {
+        min-width: 70%;
+        max-width: 90%;
+        font-size: 2em;
+      }
+      
+    }
+
   }
 
   @media screen and (min-width: $screen-breakpoint) {
-    padding-bottom: 2rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    transform: scale(1.2);
-    margin-top: 50px;
-
-    .comment-field {
-      width: 400px;
+    
+    .send-btn {
+      max-height: 3em;
     }
+    
   }
+    
 }
