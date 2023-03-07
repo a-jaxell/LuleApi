@@ -94,7 +94,7 @@ html {
     gap: 2.5em;
   }
 }
-.header nav .main-nav section .social-media-links {
+.header nav .main-nav li .social-media-links {
   color: #dbe2ef;
   filter: invert(94%) sepia(10%) saturate(397%) hue-rotate(16deg) brightness(105%) contrast(92%);
 }
