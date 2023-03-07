@@ -1,10 +1,10 @@
 <div>
-  <li id="movieID" data-id="<%= movie.id %>">
+  <section id="movieID" data-id="<%= movie.id %>">
     <h2>Titel: <%= movie.title %></h2>
     <p>Intro: <%- movie.intro %></p>
     <img width="250px" height="500px" src="<%= movie.image.url%>" alt="" />
     <h3 class="movie-rating">Filmens Betyg:</h3>
-  </li>
+  </section>
 </div>
 
 <section class="reviewsSection">
@@ -21,14 +21,14 @@
   <div class="review-send">
     <h2>Lämna review:</h2>
     <div class="person-info">
-      <h4>Förnamn:</h4>
-      <input class="firstName" class="input" type="text" />
-      <h4>Efternamn:</h4>
-      <input class="lastName" class="input" type="text" />
+      <label for="firstname">Förnamn:</label>
+      <input id='firstname' class="firstName" class="input" type="text" />
+      <label for='lastname'>Efternamn:</label>
+      <input id="lastname" class="lastName" class="input" type="text" />
     </div>
     <div>
-      <h4>Betyg:</h4>
-      <select class="rating" aria-placeholder="0-5" name="" id="">
+      <label for='selectRating'>Betyg:</label>
+      <select id="selectRating" class="rating">
         <option value="0">0</option>
         <option value="1">1</option>
         <option value="2">2</option>
@@ -49,8 +49,8 @@
   </div>
 
   <div class="capital">
-    <h3>Skriv Sveriges huvudstad för att skicka din review:</h3>
-    <input class="capital-city" type="text" />
+    <label for="capCity">Skriv Sveriges huvudstad för att skicka din review:</label>
+    <input id="capCity" class="capital-city" type="text" />
 
     <button type="submit" class="send-btn">Skicka din review</button>
   </div>
