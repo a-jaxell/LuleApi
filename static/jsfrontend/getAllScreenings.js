@@ -20,6 +20,7 @@ const renderScreenings = async () => {
             const movieImage = document.createElement('img');
             movieImage.classList.add("screening-list-image");
             movieImage.src = `${ele.movie.image.url}`;
+            movieImage.alt = `This is the poster for the movie ${ele.movie.title}`;
             screening.appendChild(movieImage);
             
             const screeningDetails = document.createElement('div');
