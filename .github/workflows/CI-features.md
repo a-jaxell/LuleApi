@@ -3,6 +3,9 @@
 Repo on GitHub
     -Dev local test and setup
     
+
+    TODO: The following features is not implemented 
+
     GH Actions to test and format code on PR
         - run tests
         - Run format, prettier
